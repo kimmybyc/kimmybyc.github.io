@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="专业刷机工具大全，提供安卓、iOS系统刷机教程、驱动下载、ROM固件资源及安全刷机指南。解决手机变砖、系统卡顿问题，安全解锁Bootloader。">
+    <meta name="keywords" content="刷机工具,安卓刷机,手机刷机,ROM下载,固件包,刷机教程,解锁Bootloader">
+    <title>刷机工具-安卓iOS系统安全刷机与固件资源中心</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --primary-dark: #1e40af;
+            --secondary-color: #64748b;
+            --bg-color: #f8fafc;
+            --card-bg: #ffffff;
+            --text-main: #1e293b;
+            --text-sub: #475569;
+            --border-color: #e2e8f0;
+            --success-color: #10b981;
+            --danger-color: #ef4444;
+            --radius-md: 8px;
+            --radius-lg: 12px;
+            --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+            --shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 64px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-dark) 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            font-weight: 800;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 600px;
+            margin: 0 auto 32px;
+        }
+
+        .search-box {
+            position: relative;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .search-box input {
+            width: 100%;
+            padding: 14px 20px;
+            padding-right: 50px;
+            border-radius: 50px;
+            border: none;
+            font-size: 1rem;
+            box-shadow: var(--shadow-md);
+            outline: none;
+        }
+
+        .search-box button {
+            position: absolute;
+            right: 6px;
+            top: 6px;
+            background-color: var(--primary-dark);
+            color: white;
+            border: none;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Main Content */
+        main {
+            padding: 40px 0;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 24px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 12px;
+        }
+
+        /* Tool Categories Grid */
+        .tools-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 24px;
+            margin-bottom: 60px;
+        }
+
+        .tool-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 24px;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .tool-card:hover {
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-md);
+            border-color: var(--primary-color);
+        }
+
+        .tool-icon {
+            width: 48px;
+            height: 48px;
+            background-color: #eff6ff;
+            color: var(--primary-color);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 16px;
+            font-size: 1.5rem;
+        }
+
+        .tool-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 8px;
+            color: var(--text-main);
+        }
+
+        .tool-card p {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .tag {
+            display: inline-block;
+            font-size: 0.75rem;
+            padding: 4px 8px;
+            background-color: #f1f5f9;
+            color: var(--text-sub);
+            border-radius: 4px;
+            margin-right: 6px;
+            margin-bottom: 6px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 16px;
+            border-radius: var(--radius-md);
+            font-size: 0.9rem;
+            font-weight: 500;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-dark);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid var(--border-color);
+            color: var(--text-main);
+        }
+
+        .btn-outline:hover {
+            border-color: var(--text-main);
+        }
+
+        /* Safety Guide Section */
+        .guide-section {
+            background-color: var(--card-bg);
+            border-radius: var(--radius-lg);
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 60px;
+        }
+
+        .steps-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 30px;
+            margin-top: 30px;
+        }
+
+        .step-item {
+            position: relative;
+        }
+
+        .step-number {
+            width: 32px;
+            height: 32px;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 700;
+            margin-bottom: 12px;
+        }
+
+        .step-item h4 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+
+        .step-item p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        .warning-box {
+            margin-top: 30px;
+            background-color: #fef2f2;
+            border: 1px solid #fee2e2;
+            border-radius: var(--radius-md);
+            padding: 20px;
+            color: #991b1b;
+        }
+
+        .warning-box strong {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        /* FAQ Section */
+        .faq-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .faq-item {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 20px;
+        }
+
+        .faq-item h4 {
+            font-size: 1rem;
+            margin-bottom: 10px;
+            color: var(--text-main);
+        }
+
+        .faq-item p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1e293b;
+            color: #94a3b8;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #334155;
+            padding-top: 20px;
+            text-align: center;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 64px;
+                left: 0;
+                width: 100%;
+                background-color: var(--card-bg);
+                border-bottom: 1px solid var(--border-color);
+                padding: 20px;
+                gap: 15px;
+                box-shadow: var(--shadow-md);
+            }
+
+            nav ul.active {
+                display: flex;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .tools-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline><line x1="12" y1="22.08" x2="12" y2="12"></line></svg>
+                <span>刷机工具箱</span>
+            </a>
+            <button class="mobile-menu-btn" aria-label="菜单">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#tools">工具下载</a></li>
+                    <li><a href="#guide">刷机教程</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                    <li><a href="#rom">ROM资源</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1>专业刷机工具与固件资源中心</h1>
+            <p>解锁手机潜能，修复系统故障。提供安卓、iOS官方及第三方刷机工具、驱动程序及详细操作指南。</p>
+            <div class="search-box">
+                <input type="text" placeholder="输入手机型号或工具名称（如：MiFlash）...">
+                <button aria-label="搜索">🔍</button>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+        
+        <!-- 工具分类 -->
+        <section id="tools">
+            <h2 class="section-title">热门刷机工具</h2>
+            <div class="tools-grid">
+                <!-- Card 1 -->
+                <article class="tool-card">
+                    <div class="tool-icon">📱</div>
+                    <h3>MiFlash</h3>
+                    <p>小米官方刷机工具，支持批量刷入官方固件和Recovery，修复小米手机变砖问题，必须配合Mi Phone驱动使用。</p>
+                    <div>
+                        <span class="tag">安卓</span>
+                        <span class="tag">官方</span>
+                    </div>
+                    <div style="margin-top: 16px;">
+                        <a href="#" class="btn btn-primary">下载工具</a>
+                        <a href="#" class="btn btn-outline" style="margin-left: 8px;">教程</a>
+                    </div>
+                </article>
+
+                <!-- Card 2 -->
+                <article class="tool-card">
+                    <div class="tool-icon">🔧</div>
+                    <h3>Odin</h3>
+                    <p>三星官方刷机工具，用于刷入三星官方ROM、PDA、Bootloader和Kernel，是三星用户最核心的维护工具。</p>
+                    <div>
+                        <span class="tag">安卓</span>
+                        <span class="tag">三星专用</span>
+                    </div>
+                    <div style="margin-top: 16px;">
+                        <a href="#" class="btn btn-primary">下载工具</a>
+                        <a href="#" class="btn btn-outline" style="margin-left: 8px;">教程</a>
+                    </div>
+                </article>
+
+                <!-- Card 3 -->
+                <article class="tool-card">
+                    <div class="tool-icon">⚙️</div>
+                    <h3>SP Flash Tool</h3>
+                    <p>MTK平台通用刷机工具，支持联发科芯片手机。可刷入Recovery、Bootloader及完整的ROM包。</p>
+                    <div>
+                        <span class="tag">安卓</span>
+                        <span class="tag">联发科</span>
+                    </div>
+                    <div style="margin-top: 16px;">
+                        <a href="#" class="btn btn-primary">下载工具</a>
+                        <a href="#" class="btn btn-outline" style="margin-left: 8px;">教程</a>
+                    </div>
+                </article>
+
+                <!-- Card 4 -->
+                <article class="tool-card">
+                    <div class="tool-icon">🔒</div>
+                    <h3>Fastboot & ADB</h3>
+                    <p>安卓命令行调试工具，用于解锁Bootloader、刷入Recovery镜像、清除用户数据（恢复出厂设置）及无线刷机。</p>
+                    <div>
+                        <span class="tag">安卓</span>
+                        <span class="tag">命令行</span>
+                    </div>
+                    <div style="margin-top: 16px;">
+                        <a href="#" class="btn btn-primary">下载工具</a>
+                        <a href="#" class="btn btn-outline" style="margin-left: 8px;">教程</a>
+                    </div>
+                </article>
+
+                <!-- Card 5 -->
+                <article class="tool-card">
+                    <div class="tool-icon">🍎</div>
+                    <h3>iTunes / 3uTools</h3>
+                    <p>iOS设备管理工具。iTunes用于官方刷机与恢复；3uTools支持越狱、降级固件下载及设备信息查看。</p>
+                    <div>
+                        <span class="tag">iOS</span>
+                        <span class="tag">苹果</span>
+                    </div>
+                    <div style="margin-top: 16px;">
+                        <a href="#" class="btn btn-primary">下载工具</a>
+                        <a href="#" class="btn btn-outline" style="margin-left: 8px;">教程</a>
+                    </div>
+                </article>
+
+                <!-- Card 6 -->
+                <article class="tool-card">
+                    <div class="tool-icon">🔍</div>
+                    <h3>QFIL / QPST</h3>
+                    <p>高通平台刷机工具套件，用于修改IMEI、刷入底层文件及修改手机配置文件。</p>
+                    <div>
+                        <span class="tag">安卓</span>
+                        <span class="tag">高通</span>
+                    </div>
+                    <div style="margin-top: 16px;">
+                        <a href="#" class="btn btn-primary">下载工具</a>
+                        <a href="#" class="btn btn-outline" style="margin-left: 8px;">教程</a>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- 安全指南 -->
+        <section id="guide">
+            <h2 class="section-title">安全刷机指南</h2>
+            <div class="guide-section">
+                <div class="steps-list">
+                    <div class="step-item">
+                        <div class="step-number">1</div>
+                        <h4>备份数据</h4>
+                        <p>刷机前务必使用云服务或电脑备份联系人、照片及重要文件，刷机过程将清除所有本地数据。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">2</div>
+                        <h4>解锁Bootloader</h4>
+                        <p>进入开发者选项开启“OEM解锁”和“USB调试”，连接电脑并执行解锁指令。注意：解锁后数据将丢失。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">3</div>
+                        <h4>进入Fastboot模式</h4>
+                        <p>关机状态下按住音量减+电源键，直到出现机器人画面即可进入Fastboot模式。</p>
+                    </div>
+                    <div class="step-item">
+                        <div class="step-number">4</div>
+                        <h4>连接与刷入</h4>
+                        <p>使用数据线连接电脑，打开对应的刷机工具，选择下载好的ROM包进行刷入。</p>
+                    </div>
+                </div>
+                <div class="warning-box">
+                    <strong>⚠️ 风险提示</strong>
+                    <p>刷机操作具有不可逆性。如果操作不当，可能导致手机变砖（无法开机）。请仅下载与手机官方型号完全匹配的固件。使用第三方ROM可能导致保修失效或安全风险。</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <h2 class="section-title">常见问题解答</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h4>刷机后手机无法开机怎么办？</h4>
+                    <p>尝试进入Recovery模式（通常按住音量键组合键），清除数据（Wipe Data/Factory Reset），然后重新刷入固件。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>什么是Bootloader？</h4>
+                    <p>Bootloader是启动手机前的引导程序。解锁它可以安装第三方系统，但会关闭手机的官方安全验证。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>如何判断手机芯片组类型？</h4>
+                    <p>进入手机设置 -> 关于手机 -> 软件信息。如果看到“MTK”字样，则是联发科芯片；看到“Qualcomm”则是高通芯片。</p>
+                </div>
+                <div class="faq-item">
+                    <h4>刷机需要什么电脑环境？</h4>
+                    <p>建议使用Windows系统，并确保安装了对应的USB驱动程序。安卓设备通常需要安装ADB Fastboot工具包。</p>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h4>关于我们</h4>
+                    <p style="font-size: 0.9rem; line-height: 1.8;">本站致力于为手机用户提供最安全、最便捷的刷机工具下载和技术支持服务，帮助用户维护设备正常运行。</p>
+                </div>
+                <div class="footer-col">
+                    <h4>快速导航</h4>
+                    <ul>
+                        <li><a href="#tools">工具下载</a></li>
+                        <li><a href="#guide">刷机教程</a></li>
+                        <li><a href="#rom">固件资源</a></li>
+                        <li><a href="#">驱动中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h4>相关资源</h4>
+                    <ul>
+                        <li><a href="#">官方ROM下载</a></li>
+                        <li><a href="#">第三方ROM推荐</a></li>
+                        <li><a href="#">解锁教程汇总</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 刷机工具箱. All Rights Reserved. 仅供技术交流使用，请支持正版系统。</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的移动端菜单切换逻辑
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            const nav = document.querySelector('nav ul');
+            nav.classList.toggle('active');
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                    // 移动端点击后自动收起菜单
+                    if (window.innerWidth <= 768) {
+                        document.querySelector('nav ul').classList.remove('active');
+                    }
+                }
+            });
+        });
+    </script>
+</body>
+</html>
