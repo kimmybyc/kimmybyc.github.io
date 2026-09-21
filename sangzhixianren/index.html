@@ -1,0 +1,847 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>桑植县人民政府-政务公开、公共服务与民生资讯平台</title>
+    <meta name="description" content="桑植县人民政府官方网站，提供桑植县政务公开、政策文件、通知公告、部门动态、民生服务及旅游资讯。了解桑植县情，获取便民服务，参与在线互动。">
+    <meta name="keywords" content="桑植县人民政府, 桑植县, 政府官网, 政务公开, 桑植新闻, 湖南张家界">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #0056b3;
+            --secondary-color: #008cff;
+            --accent-color: #f39c12;
+            --text-dark: #333333;
+            --text-gray: #666666;
+            --bg-light: #f4f6f9;
+            --white: #ffffff;
+            --border-color: #e1e4e8;
+            --container-width: 1200px;
+            --header-height: 70px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Utility */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            padding-left: 12px;
+            border-left: 4px solid var(--primary-color);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .section-title a {
+            font-size: 14px;
+            color: var(--text-gray);
+            font-weight: normal;
+        }
+
+        /* Header */
+        .top-bar {
+            background-color: #f8f9fa;
+            border-bottom: 1px solid var(--border-color);
+            font-size: 13px;
+            color: var(--text-gray);
+            padding: 8px 0;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: flex-end;
+            gap: 20px;
+        }
+
+        .top-bar a:hover {
+            color: var(--primary-color);
+        }
+
+        header {
+            background-color: var(--white);
+            height: var(--header-height);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-inner {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 100%;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            font-size: 24px;
+            font-weight: bold;
+            color: var(--primary-color);
+        }
+
+        .logo img {
+            height: 40px;
+            margin-right: 10px;
+        }
+
+        .logo-text span {
+            display: block;
+            font-size: 12px;
+            font-weight: normal;
+            color: var(--text-gray);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-size: 16px;
+            font-weight: 500;
+            padding: 5px 0;
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background-color: var(--primary-color);
+            transition: width 0.3s;
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Search Bar */
+        .search-box {
+            display: flex;
+            background: #f1f4f8;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            border: none;
+            padding: 8px 12px;
+            outline: none;
+            width: 200px;
+        }
+
+        .search-box button {
+            border: none;
+            background: var(--primary-color);
+            color: white;
+            padding: 0 15px;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 420px;
+            background: linear-gradient(rgba(0, 86, 179, 0.7), rgba(0, 86, 179, 0.5)), url('https://picsum.photos/seed/sangzhi/1600/600') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 42px;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 25px;
+            opacity: 0.9;
+        }
+
+        .hero-buttons {
+            display: flex;
+            gap: 15px;
+        }
+
+        .btn {
+            padding: 10px 25px;
+            border-radius: 4px;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background-color: var(--accent-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #d68910;
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 1px solid white;
+            color: white;
+        }
+
+        .btn-outline:hover {
+            background-color: white;
+            color: var(--primary-color);
+        }
+
+        /* Quick Links */
+        .quick-links {
+            background: var(--white);
+            padding: 30px 0;
+            margin-top: -50px;
+            border-radius: 8px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            position: relative;
+            z-index: 10;
+        }
+
+        .link-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 20px;
+        }
+
+        .link-item {
+            text-align: center;
+            padding: 15px;
+            border-radius: 6px;
+            transition: all 0.3s;
+            background: #f8f9fa;
+        }
+
+        .link-item:hover {
+            background: #eef5ff;
+            transform: translateY(-3px);
+        }
+
+        .link-icon {
+            font-size: 28px;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .link-text {
+            font-size: 14px;
+            color: var(--text-dark);
+            font-weight: 500;
+        }
+
+        /* Main Layout */
+        .main-content {
+            padding: 40px 0;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        /* News List */
+        .news-section {
+            background: var(--white);
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .news-item {
+            display: flex;
+            padding: 15px 0;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .news-item:last-child {
+            border-bottom: none;
+        }
+
+        .news-date {
+            background: #f0f7ff;
+            color: var(--primary-color);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            text-align: center;
+            min-width: 60px;
+            height: fit-content;
+            margin-right: 15px;
+        }
+
+        .news-date .day {
+            display: block;
+            font-size: 18px;
+            line-height: 1;
+        }
+
+        .news-content h3 {
+            font-size: 16px;
+            margin-bottom: 5px;
+            font-weight: 600;
+        }
+
+        .news-content h3 a:hover {
+            color: var(--primary-color);
+        }
+
+        .news-meta {
+            font-size: 12px;
+            color: #999;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .widget {
+            background: var(--white);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .widget-title {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary-color);
+        }
+
+        .notice-list li {
+            padding: 8px 0;
+            border-bottom: 1px dashed var(--border-color);
+            font-size: 14px;
+        }
+
+        .notice-list li a:hover {
+            color: var(--primary-color);
+            text-decoration: underline;
+        }
+
+        .notice-list li::before {
+            content: '•';
+            color: var(--accent-color);
+            margin-right: 8px;
+        }
+
+        .photo-gallery {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+        }
+
+        .photo-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .photo-item img {
+            width: 100%;
+            height: 120px;
+            object-fit: cover;
+            transition: transform 0.3s;
+        }
+
+        .photo-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .photo-caption {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(0,0,0,0.6);
+            color: white;
+            font-size: 12px;
+            padding: 5px;
+            text-align: center;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: var(--white);
+            padding: 50px 0;
+            margin-top: 30px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 30px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px 20px;
+            border-radius: 8px;
+            transition: all 0.3s;
+        }
+
+        .feature-card:hover {
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            background-color: #f8f9fa;
+        }
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: #eef5ff;
+            color: var(--primary-color);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 28px;
+        }
+
+        .feature-card h3 {
+            font-size: 18px;
+            margin-bottom: 10px;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: var(--text-gray);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #bdc3c7;
+            padding: 50px 0 20px;
+            margin-top: 50px;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-info h3 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .footer-info p {
+            margin-bottom: 10px;
+            font-size: 14px;
+        }
+
+        .footer-links h4, .footer-contact h4 {
+            color: var(--white);
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 20px;
+            text-align: center;
+            font-size: 13px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .link-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                height: 350px;
+            }
+            .hero h1 {
+                font-size: 32px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                height: auto;
+                padding: 10px 0;
+            }
+            nav ul {
+                margin: 15px 0;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 15px;
+            }
+            .search-box {
+                display: none; /* Hide on mobile for simplicity */
+            }
+            .link-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            .feature-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+            }
+            .section-title {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .link-grid {
+                grid-template-columns: 1fr;
+            }
+            .feature-grid {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                height: 250px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <a href="#">今天是：<span id="current-date"></span></a>
+            <span>|</span>
+            <a href="#">网站地图</a>
+            <span>|</span>
+            <a href="#">无障碍浏览</a>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <img src="https://picsum.photos/seed/govlogo/80/80" alt="桑植县人民政府">
+                <div class="logo-text">
+                    桑植县人民政府
+                    <span>湖南省张家界市</span>
+                </div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">县情概览</a></li>
+                    <li><a href="#">政务公开</a></li>
+                    <li><a href="#">政务服务</a></li>
+                    <li><a href="#">招商引资</a></li>
+                    <li><a href="#">走进桑植</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索政务信息...">
+                <button type="button">搜索</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container hero-content">
+            <h1>山水桑植 · 红色热土</h1>
+            <p>致力于建设人民满意的服务型政府，推动桑植县经济社会高质量发展，打造湘西北区域中心城市。</p>
+            <div class="hero-buttons">
+                <a href="#" class="btn btn-primary">政务服务大厅</a>
+                <a href="#" class="btn btn-outline">在线互动留言</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Links -->
+    <div class="container">
+        <div class="quick-links">
+            <div class="link-grid">
+                <a href="#" class="link-item">
+                    <span class="link-icon">📄</span>
+                    <span class="link-text">政府文件</span>
+                </a>
+                <a href="#" class="link-item">
+                    <span class="link-icon">📢</span>
+                    <span class="link-text">通知公告</span>
+                </a>
+                <a href="#" class="link-item">
+                    <span class="link-icon">💼</span>
+                    <span class="link-text">人事信息</span>
+                </a>
+                <a href="#" class="link-item">
+                    <span class="link-icon">📊</span>
+                    <span class="link-text">统计公报</span>
+                </a>
+                <a href="#" class="link-item">
+                    <span class="link-icon">🔗</span>
+                    <span class="link-text">招标采购</span>
+                </a>
+                <a href="#" class="link-item">
+                    <span class="link-icon">📂</span>
+                    <span class="link-text">政策库</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="container main-content">
+        <!-- Left Column: News & Updates -->
+        <main>
+            <section class="news-section">
+                <div class="section-title">
+                    <span>今日头条</span>
+                    <a href="#">查看更多 ></a>
+                </div>
+                <article class="news-item">
+                    <div class="news-date">
+                        <span class="day">15</span>
+                        <span class="month">10月</span>
+                    </div>
+                    <div class="news-content">
+                        <h3><a href="#">桑植县召开2023年第四季度经济形势分析会</a></h3>
+                        <p class="news-meta">发布时间：2023-10-15 10:30 | 来源：县政府办公室</p>
+                    </div>
+                </article>
+                <article class="news-item">
+                    <div class="news-date">
+                        <span class="day">14</span>
+                        <span class="month">10月</span>
+                    </div>
+                    <div class="news-content">
+                        <h3><a href="#">张家界市桑植县：乡村振兴绘就新画卷</a></h3>
+                        <p class="news-meta">发布时间：2023-10-14 16:45 | 来源：县农业农村局</p>
+                    </div>
+                </article>
+                <article class="news-item">
+                    <div class="news-date">
+                        <span class="day">13</span>
+                        <span class="month">10月</span>
+                    </div>
+                    <div class="news-content">
+                        <h3><a href="#">关于公开征集2024年县政府民生实事项目的公告</a></h3>
+                        <p class="news-meta">发布时间：2023-10-13 09:20 | 来源：县发改委</p>
+                    </div>
+                </article>
+                <article class="news-item">
+                    <div class="news-date">
+                        <span class="day">12</span>
+                        <span class="month">10月</span>
+                    </div>
+                    <div class="news-content">
+                        <h3><a href="#">桑植县举办首届“红色旅游文化节”活动</a></h3>
+                        <p class="news-meta">发布时间：2023-10-12 14:00 | 来源：县文旅局</p>
+                    </div>
+                </article>
+            </section>
+
+            <!-- Featured Gallery -->
+            <section style="margin-top: 30px; background: white; padding: 20px; border-radius: 8px; box-shadow: 0 2px 10px rgba(0,0,0,0.03);">
+                <div class="section-title">
+                    <span>桑植风貌</span>
+                    <a href="#">更多图片 ></a>
+                </div>
+                <div class="photo-gallery">
+                    <div class="photo-item">
+                        <img src="https://picsum.photos/seed/mountain/400/300" alt="八面山">
+                        <div class="photo-caption">八面山风光</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://picsum.photos/seed/river/400/300" alt="澧水河">
+                        <div class="photo-caption">澧水河畔</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://picsum.photos/seed/culture/400/300" alt="白族文化">
+                        <div class="photo-caption">白族文化展演</div>
+                    </div>
+                    <div class="photo-item">
+                        <img src="https://picsum.photos/seed/fruit/400/300" alt="猕猴桃产业">
+                        <div class="photo-caption">桑植猕猴桃</div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Right Column: Sidebar -->
+        <aside class="sidebar">
+            <!-- Notice Widget -->
+            <div class="widget">
+                <div class="widget-title">通知公告</div>
+                <ul class="notice-list">
+                    <li><a href="#">关于2023年国庆节放假安排的通知</a></li>
+                    <li><a href="#">桑植县2023年度城乡居民基本医疗保险缴费通知</a></li>
+                    <li><a href="#">关于开展全县安全生产大检查的通告</a></li>
+                    <li><a href="#">2023年秋季中小学招生入学政策解读</a></li>
+                    <li><a href="#">桑植县图书馆开放时间调整公告</a></li>
+                </ul>
+            </div>
+
+            <!-- Hot Topics Widget -->
+            <div class="widget">
+                <div class="widget-title">热点专题</div>
+                <ul class="notice-list">
+                    <li><a href="#">学习贯彻党的二十大精神</a></li>
+                    <li><a href="#">清廉桑植建设</a></li>
+                    <li><a href="#">优化营商环境专项行动</a></li>
+                    <li><a href="#">森林防火安全提示</a></li>
+                    <li><a href="#">打击整治养老诈骗</a></li>
+                </ul>
+            </div>
+
+            <!-- Hot Search -->
+            <div class="widget">
+                <div class="widget-title">热门搜索</div>
+                <div style="display: flex; flex-wrap: wrap; gap: 8px;">
+                    <span style="background: #eee; padding: 4px 8px; border-radius: 4px; font-size: 13px;">桑植县人民政府</span>
+                    <span style="background: #eee; padding: 4px 8px; border-radius: 4px; font-size: 13px;">政务公开</span>
+                    <span style="background: #eee; padding: 4px 8px; border-radius: 4px; font-size: 13px;">乡村振兴</span>
+                    <span style="background: #eee; padding: 4px 8px; border-radius: 4px; font-size: 13px;">桑植猕猴桃</span>
+                    <span style="background: #eee; padding: 4px 8px; border-radius: 4px; font-size: 13px;">便民服务</span>
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <!-- Services Features -->
+    <section class="features">
+        <div class="container">
+            <div class="section-title">
+                <span>便民服务</span>
+            </div>
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏢</div>
+                    <h3>网上办事</h3>
+                    <p>足不出户，在线办理社保、医保、公积金等业务。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📞</div>
+                    <h3>政务服务热线</h3>
+                    <p>12345 政务服务便民热线，24小时为您解答咨询。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3>数据开放</h3>
+                    <p>依法依规开放政府数据，支持社会公众开发利用。</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📱</div>
+                    <h3>移动端应用</h3>
+                    <p>下载“桑植政务”APP，随时随地掌握最新资讯。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h3>桑植县人民政府</h3>
+                    <p>地址：湖南省张家界市桑植县澧源镇澧阳中路</p>
+                    <p>邮编：427100</p>
+                    <p>联系电话：0744-6222345</p>
+                    <p>电子邮箱：szzx@zjj.gov.cn</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#">张家界市人民政府</a></li>
+                        <li><a href="#">湖南省人民政府</a></li>
+                        <li><a href="#">国务院办公厅</a></li>
+                        <li><a href="#">中国政府网</a></li>
+                    </ul>
+                </div>
+                <div class="footer-contact">
+                    <h4>关注我们</h4>
+                    <ul>
+                        <li><a href="#">桑植发布</a></li>
+                        <li><a href="#">指尖上的桑植</a></li>
+                        <li><a href="#">桑植融媒</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>Copyright © 2023 桑植县人民政府 版权所有 | 湘ICP备XXXXXXXX号-1 | 湘公网安备 XXXXXXXXXXXX号</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Simple script to set current date
+        document.addEventListener('DOMContentLoaded', function() {
+            const dateElement = document.getElementById('current-date');
+            const now = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric', weekday: 'long' };
+            dateElement.textContent = now.toLocaleDateString('zh-CN', options);
+        });
+    </script>
+</body>
+  </html>
