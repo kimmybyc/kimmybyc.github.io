@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>dnf机械师-职业玩法攻略、装备搭配与加点指南</title>
+    <meta name="description" content="本站提供DNF机械师职业的深度攻略，包括最新版本装备搭配推荐、技能加点方案、连招技巧以及实战玩法解析，助你打造最强机械师。">
+    <meta name="keywords" content="dnf机械师,地下城与勇士机械师,机械师加点,机械师装备,机械师连招">
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary: #00a8ff;
+            --secondary: #ff9f43;
+            --dark: #2f3640;
+            --light: #f5f6fa;
+            --text: #2f3640;
+            --text-light: #7f8fa6;
+            --bg: #ffffff;
+            --card-bg: #ffffff;
+            --border-radius: 8px;
+            --spacing: 20px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+            background-color: var(--bg);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing);
+        }
+
+        /* Header */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .nav-wrapper {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 800;
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--dark);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 600;
+            color: var(--text);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary);
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #00a8ff 0%, #0097e6 100%);
+            color: white;
+            padding: 60px 0;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Section Styles */
+        section {
+            padding: 40px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .section-header {
+            margin-bottom: 30px;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+        }
+
+        .section-title {
+            font-size: 1.8rem;
+            color: var(--dark);
+            position: relative;
+            padding-left: 15px;
+        }
+
+        .section-title::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 5px;
+            height: 24px;
+            background-color: var(--primary);
+            border-radius: 2px;
+        }
+
+        /* Equipment Grid */
+        .equip-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .equip-card {
+            background: var(--card-bg);
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .equip-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+        }
+
+        .equip-icon {
+            width: 60px;
+            height: 60px;
+            background-color: var(--light);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 15px;
+            font-size: 24px;
+        }
+
+        .equip-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .equip-card p {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 15px;
+        }
+
+        .tag {
+            display: inline-block;
+            padding: 4px 8px;
+            background-color: rgba(0, 168, 255, 0.1);
+            color: var(--primary);
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        /* Skills & Build */
+        .build-container {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 30px;
+        }
+
+        .skill-list {
+            background: var(--card-bg);
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: 25px;
+        }
+
+        .skill-item {
+            display: flex;
+            align-items: center;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .skill-item:last-child {
+            border-bottom: none;
+        }
+
+        .skill-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--light);
+            border-radius: 6px;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: var(--text-light);
+        }
+
+        .skill-info {
+            flex: 1;
+        }
+
+        .skill-name {
+            font-weight: 700;
+            display: block;
+        }
+
+        .skill-desc {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .build-sidebar {
+            background: var(--light);
+            padding: 25px;
+            border-radius: var(--border-radius);
+        }
+
+        .build-sidebar h3 {
+            margin-bottom: 15px;
+            font-size: 1.1rem;
+        }
+
+        .build-sidebar ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+
+        .build-sidebar ul li:last-child {
+            border-bottom: none;
+        }
+
+        .build-sidebar a {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        /* Playstyle Guide */
+        .playstyle-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .playstyle-card {
+            background: var(--card-bg);
+            padding: 25px;
+            border-radius: var(--border-radius);
+            border-top: 4px solid var(--secondary);
+        }
+
+        .playstyle-card h3 {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        /* FAQ */
+        .faq-item {
+            background: var(--card-bg);
+            border: 1px solid #eee;
+            margin-bottom: 10px;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            font-weight: 600;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #fff;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            color: var(--text-light);
+            background-color: #fafafa;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 0 20px 20px 20px;
+            max-height: 200px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--dark);
+            color: #bdc3c7;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 10px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-wrapper {
+                flex-direction: column;
+                height: auto;
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                margin-top: 15px;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .build-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-wrapper">
+            <a href="#" class="logo">
+                <span>DNF</span>攻略中心
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#equipment">装备搭配</a></li>
+                    <li><a href="#skills">技能加点</a></li>
+                    <li><a href="#playstyle">实战玩法</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1>DNF机械师</h1>
+                <p>掌握核心控制与爆发技巧，打造独一无二的机械军团</p>
+            </div>
+        </section>
+
+        <section id="equipment" class="container">
+            <div class="section-header">
+                <h2 class="section-title">最新装备搭配</h2>
+            </div>
+            <div class="equip-grid">
+                <article class="equip-card">
+                    <div class="equip-icon">⚡</div>
+                    <h3>自定义史诗套装</h3>
+                    <p>适合追求极致伤害的玩家，通过自定义词条选择“异常状态”与“攻速”词条，配合“死亡之步”流派。</p>
+                    <span class="tag">主流流派</span>
+                </article>
+                <article class="equip-card">
+                    <div class="equip-icon">🛡️</div>
+                    <h3>MP直伤流</h3>
+                    <p>利用MP技能特性，搭配大技能爆发，适合需要快速清图的场景，操作相对简单。</p>
+                    <span class="tag">刷图推荐</span>
+                </article>
+                <article class="equip-card">
+                    <div class="equip-icon">⚙️</div>
+                    <h3>攻速出血流</h3>
+                    <p>提升技能释放频率，利用出血状态触发高额伤害，兼顾输出与机动性。</p>
+                    <span class="tag">PK场</span>
+                </article>
+                <article class="equip-card">
+                    <div class="equip-icon">🎯</div>
+                    <h3>大幽魂/深潜套装</h3>
+                    <p>经典的高额三速套装，配合机械师的特性，能极大提升走位与技能衔接效率。</p>
+                    <span class="tag">过渡选择</span>
+                </article>
+            </div>
+        </section>
+
+        <section id="skills" class="container">
+            <div class="section-header">
+                <h2 class="section-title">技能加点方案</h2>
+            </div>
+            <div class="build-container">
+                <div class="skill-list">
+                    <div class="skill-item">
+                        <div class="skill-icon">1</div>
+                        <div class="skill-info">
+                            <span class="skill-name">机械改良</span>
+                            <span class="skill-desc">核心被动，提升机器人属性与攻速，必满。</span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">2</div>
+                        <div class="skill-info">
+                            <span class="skill-name">G-1 科罗纳</span>
+                            <span class="skill-desc">主要输出技能，建议加满或根据SP分配加点。</span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">3</div>
+                        <div class="skill-info">
+                            <span class="skill-name">G-3 银弹</span>
+                            <span class="skill-desc">聚怪与爆发，必满技能。</span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">4</div>
+                        <div class="skill-info">
+                            <span class="skill-name">Ex-S 无人机</span>
+                            <span class="skill-desc">核心爆发技能，根据流派决定是否加TP。</span>
+                        </div>
+                    </div>
+                    <div class="skill-item">
+                        <div class="skill-icon">5</div>
+                        <div class="skill-info">
+                            <span class="skill-name">拦截机工厂</span>
+                            <span class="skill-desc">大范围持续伤害，TP建议加满。</span>
+                        </div>
+                    </div>
+                </div>
+                <aside class="build-sidebar">
+                    <h3>加点策略</h3>
+                    <ul>
+                        <li><a href="#">机械改良 <span>必满</span></a></li>
+                        <li><a href="#">G-1 科罗纳 <span>主力输出</span></a></li>
+                        <li><a href="#">G-3 银弹 <span>聚怪</span></a></li>
+                        <li><a href="#">Ex-S 无人机 <span>爆发</span></a></li>
+                        <li><a href="#">拦截机工厂 <span>TP满</span></a></li>
+                        <li><a href="#">RX-78 追击者 <span>辅助</span></a></li>
+                    </ul>
+                    <div style="margin-top: 20px; padding: 10px; background: rgba(255,159,67,0.1); border-radius: 4px; font-size: 0.9rem; color: var(--secondary);">
+                        <strong>提示：</strong> 机器人技能根据装备流派可适当取舍，攻速流建议保留机器人相关技能。
+                    </div>
+                </aside>
+            </div>
+        </section>
+
+        <section id="playstyle" class="container">
+            <div class="section-header">
+                <h2 class="section-title">实战玩法指南</h2>
+            </div>
+            <div class="playstyle-grid">
+                <div class="playstyle-card">
+                    <h3>🤖 机器人走位</h3>
+                    <p>机械师的核心在于机器人。在团本中，合理利用机器人的自动索敌和范围攻击，可以覆盖大量死角。注意控制机器人的生成时机，避免在怪物密集处瞬间爆发被秒杀。</p>
+                </div>
+                <div class="playstyle-card">
+                    <h3>🎯 技能衔接</h3>
+                    <p>建议先释放G-3银弹进行聚怪，随后接上G-1科罗纳进行输出。在怪物倒地或僵直时，使用Ex-S无人机进行爆发收割。注意技能冷却时间，保持持续的压力。</p>
+                </div>
+                <div class="playstyle-card">
+                    <h3>⚡ 增益与减益</h3>
+                    <p>机械改良的等级直接影响机器人伤害，务必保持满级。合理利用Buff技能（如力量/智力药水）和装备附魔，最大化输出效率。</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="faq" class="container">
+            <div class="section-header">
+                <h2 class="section-title">常见问题解答</h2>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <div class="faq-question">机械师在PK场中如何克制近战职业？</div>
+                    <div class="faq-answer">利用机器人的自动索敌和射程优势进行压制。保持距离，利用G-3银弹的聚怪效果打断对手突进，使用Ex-S无人机进行远程压制。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">新手机械师应该优先提升哪些装备？</div>
+                    <div class="faq-answer">优先提升攻速和移动速度，这能显著改善操作手感。其次提升力量/智力等攻击力属性。自定义史诗装备优先选择攻速和技能攻击力词条。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">机械师刷图时容易断连招吗？</div>
+                    <div class="faq-answer">机械师技能多为自动追踪，不易断连。但要注意技能CD管理，合理安排技能释放顺序，避免关键时刻技能真空期。</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-links">
+                <a href="#">关于本站</a>
+                <a href="#">免责声明</a>
+                <a href="#">联系方式</a>
+                <a href="#">友情链接</a>
+            </div>
+            <p>&copy; 2023 DNF机械师攻略中心. All Rights Reserved.</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; opacity: 0.6;">本站内容仅供学习交流，不代表官方立场。</p>
+        </div>
+    </footer>
+
+    <script>
+        // 简单的FAQ折叠逻辑
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                question.addEventListener('click', () => {
+                    // 关闭其他打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+        });
+    </script>
+</body>
+</html>
