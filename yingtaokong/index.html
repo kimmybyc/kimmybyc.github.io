@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="樱桃空官网 - 深度解析樱桃空这一自然意象与生活美学，提供樱桃空种植养护指南、樱桃空美学摄影作品展示及樱桃空主题生活方式分享。">
+    <meta name="keywords" content="樱桃空, 樱桃空种植, 樱桃空摄影, 樱桃空美学, 樱桃空生活">
+    <title>樱桃空 - 自然美学与生活种植指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d62828;
+            --primary-dark: #9d0208;
+            --secondary-color: #fcbf49;
+            --bg-color: #fdfbf7;
+            --text-main: #2b2d42;
+            --text-light: #8d99ae;
+            --card-bg: #ffffff;
+            --spacing-unit: 1rem;
+            --container-width: 1200px;
+            --border-radius: 12px;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans SC", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: var(--transition);
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+            object-fit: cover;
+        }
+
+        /* Layout Utilities */
+        .container {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .section-padding {
+            padding: 5rem 0;
+        }
+
+        .grid {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .grid-2 {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0,0,0,0.05);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.02);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            font-size: 1rem;
+            color: var(--text-main);
+            position: relative;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary-color);
+            transition: var(--transition);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            background: none;
+            border: none;
+            color: var(--text-main);
+        }
+
+        /* Hero Section */
+        .hero {
+            position: relative;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background: linear-gradient(135deg, #fff0f0 0%, #fff 100%);
+            overflow: hidden;
+            border-radius: 0 0 50% 50% / 4rem;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -20%;
+            right: -10%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(252, 191, 73, 0.2) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -10%;
+            left: -10%;
+            width: 400px;
+            height: 400px;
+            background: radial-gradient(circle, rgba(214, 40, 40, 0.1) 0%, rgba(255, 255, 255, 0) 70%);
+            border-radius: 50%;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 1rem;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            font-weight: 900;
+            margin-bottom: 1.5rem;
+            color: var(--text-main);
+            letter-spacing: -0.02em;
+        }
+
+        .hero h1 span {
+            color: var(--primary-color);
+            display: block;
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 0.5rem;
+        }
+
+        .hero p {
+            font-size: 1.25rem;
+            color: var(--text-light);
+            margin-bottom: 2.5rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 2rem;
+            background-color: var(--primary-color);
+            color: white;
+            border-radius: 50px;
+            font-weight: 600;
+            box-shadow: 0 4px 15px rgba(214, 40, 40, 0.3);
+            transition: var(--transition);
+        }
+
+        .btn:hover {
+            background-color: var(--primary-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(214, 40, 40, 0.4);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--primary-color);
+            color: var(--primary-color);
+            margin-left: 1rem;
+            box-shadow: none;
+        }
+
+        .btn-outline:hover {
+            background-color: var(--primary-color);
+            color: white;
+        }
+
+        /* Concept Section */
+        .concept {
+            background-color: #fff;
+        }
+
+        .section-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--text-main);
+        }
+
+        .section-header p {
+            color: var(--text-light);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .concept-card {
+            padding: 3rem;
+            background-color: #fff8f8;
+            border-radius: var(--border-radius);
+            text-align: center;
+            transition: var(--transition);
+        }
+
+        .concept-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .concept-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+        }
+
+        .concept-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .concept-card p {
+            color: var(--text-light);
+        }
+
+        /* Gallery Section */
+        .gallery {
+            background-color: var(--bg-color);
+        }
+
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .gallery-item {
+            position: relative;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            aspect-ratio: 1;
+            box-shadow: var(--shadow);
+            group: 'gallery';
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            transition: transform 0.6s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        .gallery-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 2rem 1.5rem 1.5rem;
+            color: white;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: var(--transition);
+        }
+
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Guide Section */
+        .guide {
+            background-color: #fff;
+        }
+
+        .guide-card {
+            display: flex;
+            flex-direction: column;
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            height: 100%;
+        }
+
+        .guide-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .guide-img {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .guide-img img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .guide-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .guide-tag {
+            font-size: 0.8rem;
+            color: var(--primary-color);
+            font-weight: 700;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .guide-content h3 {
+            font-size: 1.25rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-main);
+        }
+
+        .guide-content p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .read-more {
+            font-weight: 600;
+            color: var(--text-main);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .read-more:hover {
+            color: var(--primary-color);
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: #f8f9fa;
+        }
+
+        .faq-item {
+            background: white;
+            border-radius: var(--border-radius);
+            margin-bottom: 1rem;
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+        }
+
+        .faq-question {
+            padding: 1.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-main);
+        }
+
+        .faq-question:hover {
+            background-color: #fafafa;
+        }
+
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+            padding: 0 1.5rem;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            padding-bottom: 1.5rem;
+        }
+
+        .faq-item.active .faq-question {
+            color: var(--primary-color);
+        }
+
+        .icon-plus {
+            transition: transform 0.3s ease;
+        }
+
+        .faq-item.active .icon-plus {
+            transform: rotate(45deg);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #fff;
+            padding: 4rem 0 2rem;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 3rem;
+            margin-bottom: 3rem;
+        }
+
+        .footer-brand h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        .footer-brand p {
+            color: #888;
+            margin-bottom: 1.5rem;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            font-size: 1.1rem;
+            margin-bottom: 1.2rem;
+            color: #fff;
+        }
+
+        .footer-links ul li {
+            margin-bottom: 0.8rem;
+        }
+
+        .footer-links ul li a {
+            color: #888;
+        }
+
+        .footer-links ul li a:hover {
+            color: var(--primary-color);
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 2rem;
+            text-align: center;
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .grid-4 {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .hero h1 {
+                font-size: 3rem;
+            }
+            .hero h1 span {
+                font-size: 3.5rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                padding: 0 1rem;
+            }
+            nav ul {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                padding: 1rem;
+                box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            }
+            nav ul.show {
+                display: flex;
+            }
+            .mobile-menu-btn {
+                display: block;
+            }
+            .grid-2, .grid-3, .grid-4 {
+                grid-template-columns: 1fr;
+            }
+            .hero {
+                height: 500px;
+                border-radius: 0 0 30% 30% / 3rem;
+            }
+            .footer-grid {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            .btn-outline {
+                margin-left: 0;
+                margin-top: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <span>🍒</span> 樱桃空
+            </a>
+            <button class="mobile-menu-btn" aria-label="菜单">☰</button>
+            <nav>
+                <ul>
+                    <li><a href="#home" class="active">首页</a></li>
+                    <li><a href="#concept">美学概念</a></li>
+                    <li><a href="#gallery">影像图库</a></li>
+                    <li><a href="#guide">种植指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>樱桃空<br><span>樱桃空</span>的极致美学</h1>
+                <p>探索“樱桃空”这一独特自然意象与生活哲学。从季节的更替到心灵的留白，感受色彩与空间交织的视觉盛宴。</p>
+                <div class="hero-btns">
+                    <a href="#gallery" class="btn">浏览图库</a>
+                    <a href="#concept" class="btn btn-outline">了解更多</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Concept Section -->
+        <section id="concept" class="section-padding concept">
+            <div class="container">
+                <div class="section-header">
+                    <h2>什么是“樱桃空”？</h2>
+                    <p>不仅仅是果实，更是一种关于色彩、季节与心境的隐喻。</p>
+                </div>
+                <div class="grid grid-3">
+                    <article class="concept-card">
+                        <div class="concept-icon">🎨</div>
+                        <h3>色彩美学</h3>
+                        <p>樱桃红与天空蓝的碰撞，象征着生命力与广阔视野的完美融合，带来视觉上的愉悦与宁静。</p>
+                    </article>
+                    <article class="concept-card">
+                        <div class="concept-icon">🌱</div>
+                        <h3>自然生长</h3>
+                        <p>源自对自然界的观察，寓意着顺应时节、自然绽放的生命状态，强调可持续与和谐共生。</p>
+                    </article>
+                    <article class="concept-card">
+                        <div class="concept-icon">🧘</div>
+                        <h3>心灵留白</h3>
+                        <p>在繁忙的都市生活中，“樱桃空”代表了一种精神上的空灵与通透，让心灵回归纯粹。</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Gallery Section -->
+        <section id="gallery" class="section-padding gallery">
+            <div class="container">
+                <div class="section-header">
+                    <h2>视觉图库</h2>
+                    <p>捕捉光影瞬间，定格“樱桃空”的永恒之美。</p>
+                </div>
+                <div class="gallery-grid">
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/cherry1/600/600" alt="樱桃空场景一">
+                        <div class="gallery-overlay">
+                            <h4>初夏的午后</h4>
+                            <p>光影斑驳下的静谧时光</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/cherry2/600/600" alt="樱桃空场景二">
+                        <div class="gallery-overlay">
+                            <h4>丰收的色彩</h4>
+                            <p>自然馈赠的鲜艳色调</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/cherry3/600/600" alt="樱桃空场景三">
+                        <div class="gallery-overlay">
+                            <h4>天空之境</h4>
+                            <p>开阔视野下的心灵栖息</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/cherry4/600/600" alt="樱桃空场景四">
+                        <div class="gallery-overlay">
+                            <h4>微观世界</h4>
+                            <p>细节中的独特纹理</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/cherry5/600/600" alt="樱桃空场景五">
+                        <div class="gallery-overlay">
+                            <h4>季节流转</h4>
+                            <p>时间刻下的自然印记</p>
+                        </div>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="https://picsum.photos/seed/cherry6/600/600" alt="樱桃空场景六">
+                        <div class="gallery-overlay">
+                            <h4>生活美学</h4>
+                            <p>融入日常的精致感</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Guide Section -->
+        <section id="guide" class="section-padding guide">
+            <div class="container">
+                <div class="section-header">
+                    <h2>种植与养护指南</h2>
+                    <p>如何在家中或庭院中创造属于你的“樱桃空”角落。</p>
+                </div>
+                <div class="grid grid-3">
+                    <article class="guide-card">
+                        <div class="guide-img">
+                            <img src="https://picsum.photos/seed/plant1/400/300" alt="土壤选择">
+                        </div>
+                        <div class="guide-content">
+                            <span class="guide-tag">土壤与种植</span>
+                            <h3>如何选择适宜的土壤</h3>
+                            <p>樱桃植物喜欢排水良好、富含有机质的土壤。在种植前，建议进行土壤酸碱度测试，确保环境适合生长。</p>
+                            <a href="#" class="read-more">阅读详情 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="guide-card">
+                        <div class="guide-img">
+                            <img src="https://picsum.photos/seed/plant2/400/300" alt="浇水技巧">
+                        </div>
+                        <div class="guide-content">
+                            <span class="guide-tag">日常养护</span>
+                            <h3>科学的浇水技巧</h3>
+                            <p>掌握“见干见湿”的原则，避免积水导致根部腐烂。夏季需增加浇水频率，冬季则需减少。</p>
+                            <a href="#" class="read-more">阅读详情 &rarr;</a>
+                        </div>
+                    </article>
+                    <article class="guide-card">
+                        <div class="guide-img">
+                            <img src="https://picsum.photos/seed/plant3/400/300" alt="修剪造型">
+                        </div>
+                        <div class="guide-content">
+                            <span class="guide-tag">修剪与造型</span>
+                            <h3>修剪与造型技巧</h3>
+                            <p>定期修剪枯枝和过密枝条，不仅能促进通风透光，还能塑造出更具美感的树形，提升观赏价值。</p>
+                            <a href="#" class="read-more">阅读详情 &rarr;</a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq" class="section-padding faq">
+            <div class="container">
+                <div class="section-header">
+                    <h2>常见问题解答</h2>
+                    <p>关于“樱桃空”概念及养护的疑问解答。</p>
+                </div>
+                <div class="faq-container">
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            樱桃空适合在室内种植吗？
+                            <span class="icon-plus">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>虽然大多数樱桃类植物需要充足的阳光，但一些小型观赏品种或通过修剪控制生长的盆栽，在光线充足的窗台也能良好生长。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            为什么我的樱桃树叶子发黄？
+                            <span class="icon-plus">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>叶子发黄通常是由于浇水过多、光照不足或土壤贫瘠导致的。请检查土壤湿度，确保排水通畅，并适当增加光照时间。</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <div class="faq-question">
+                            “樱桃空”在艺术创作中有什么寓意？
+                            <span class="icon-plus">+</span>
+                        </div>
+                        <div class="faq-answer">
+                            <p>在艺术创作中，它常被用作象征“短暂的美好”、“季节的轮回”或“希望与新生”的符号，通过色彩的对比来表达丰富的情感。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <h3>🍒 樱桃空</h3>
+                    <p>致力于分享自然美学、植物种植指南与生活方式，帮助您在繁忙的生活中找到一片心灵的栖息地。</p>
+                </div>
+                <div class="footer-links">
+                    <h4>快速链接</h4>
+                    <ul>
+                        <li><a href="#home">回到首页</a></li>
+                        <li><a href="#gallery">图片图库</a></li>
+                        <li><a href="#guide">种植指南</a></li>
+                        <li><a href="#faq">帮助中心</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>关于我们</h4>
+                    <ul>
+                        <li><a href="#">品牌故事</a></li>
+                        <li><a href="#">联系方式</a></li>
+                        <li><a href="#">隐私政策</a></li>
+                        <li><a href="#">服务条款</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links">
+                    <h4>订阅更新</h4>
+                    <ul>
+                        <li><a href="#">获取最新资讯</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2023 樱桃空美学空间. All rights reserved. Designed for Nature Lovers.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Mobile Menu Toggle
+            const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+            const navUl = document.querySelector('nav ul');
+
+            if (mobileMenuBtn) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    navUl.classList.toggle('show');
+                });
+            }
+
+            // FAQ Accordion
+            const faqItems = document.querySelectorAll('.faq-item');
+
+            faqItems.forEach(item => {
+                const question = item.querySelector('.faq-question');
+                
+                question.addEventListener('click', () => {
+                    // Close other items
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    
+                    // Toggle current item
+                    item.classList.toggle('active');
+                });
+            });
+
+            // Smooth Scroll for Anchor Links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const target = document.querySelector(this.getAttribute('href'));
+                    if (target) {
+                        target.scrollIntoView({
+                            behavior: 'smooth',
+                            block: 'start'
+                        });
+                        // Close mobile menu if open
+                        navUl.classList.remove('show');
+                    }
+                });
+            });
+
+            // Header Scroll Effect
+            const header = document.querySelector('header');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) {
+                    header.style.boxShadow = '0 4px 20px rgba(0, 0, 0, 0.1)';
+                } else {
+                    header.style.boxShadow = '0 2px 10px rgba(0,0,0,0.02)';
+                }
+            });
+        });
+    </script>
+</body>
+                              </html>
