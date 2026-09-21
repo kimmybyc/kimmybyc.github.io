@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="厚街租房网提供厚街镇最新、最全的租房信息。包含公寓、单间、合租、厂房宿舍等房源，支持地图找房、小区搜索及房东直租，助您轻松找到理想居所。">
+    <meta name="keywords" content="厚街租房网,东莞厚街租房,厚街公寓,厚街房东直租,厚街厂房宿舍,厚街小区找房">
+    <title>厚街租房网-厚街镇最新房源与房东直租平台</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --primary-hover: #c0392b;
+            --secondary-color: #2c3e50;
+            --bg-color: #f8f9fa;
+            --card-bg: #ffffff;
+            --text-main: #333333;
+            --text-sub: #666666;
+            --border-color: #e1e4e8;
+            --radius-md: 8px;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+            --spacing-unit: 1rem;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header & Nav */
+        header {
+            background-color: var(--card-bg);
+            box-shadow: var(--shadow-sm);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            height: 70px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--secondary-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-main);
+            font-size: 1rem;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #fff0f0 0%, #fff 100%);
+            padding: 3rem 0;
+            text-align: center;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            margin-bottom: 2rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Search Box */
+        .search-box {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-md);
+            max-width: 900px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr auto;
+            gap: 1rem;
+            align-items: end;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+        }
+
+        .form-group label {
+            font-size: 0.85rem;
+            font-weight: 600;
+            color: var(--text-sub);
+            margin-bottom: 0.4rem;
+        }
+
+        .form-control {
+            padding: 0.8rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            width: 100%;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 0.8rem 2rem;
+            border-radius: var(--radius-md);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            height: 46px;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--primary-hover);
+        }
+
+        /* Quick Nav */
+        .quick-nav {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 var(--spacing-unit);
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .nav-tag {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .nav-tag:hover {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        /* Main Content Layout */
+        .main-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+            flex: 1;
+            margin-bottom: 3rem;
+        }
+
+        /* Property List */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid var(--primary-color);
+            padding-left: 1rem;
+        }
+
+        .section-title {
+            font-size: 1.5rem;
+            color: var(--secondary-color);
+        }
+
+        .property-card {
+            background: var(--card-bg);
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+            margin-bottom: 1.5rem;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .property-card:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-img-wrapper {
+            position: relative;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .card-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .tag-direct {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: rgba(231, 76, 60, 0.9);
+            color: white;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        .card-content {
+            padding: 1.2rem;
+        }
+
+        .card-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            font-size: 1.4rem;
+            color: var(--primary-color);
+            font-weight: 800;
+        }
+
+        .price span {
+            font-size: 0.9rem;
+            font-weight: 400;
+            color: var(--text-sub);
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 0.3rem;
+            color: var(--text-main);
+        }
+
+        .card-meta {
+            display: flex;
+            gap: 1rem;
+            font-size: 0.85rem;
+            color: var(--text-sub);
+            margin-bottom: 1rem;
+        }
+
+        .meta-item {
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .card-desc {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid #f0f0f0;
+            padding-top: 1rem;
+        }
+
+        .location {
+            display: flex;
+            align-items: center;
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .contact-btn {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 2rem;
+        }
+
+        .sidebar-widget {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-sm);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+            border-bottom: 1px solid #f5f5f5;
+            padding-bottom: 1rem;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        .faq-q {
+            font-weight: 600;
+            font-size: 0.95rem;
+            margin-bottom: 0.5rem;
+            color: var(--secondary-color);
+        }
+
+        .faq-a {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        .notice-list li {
+            font-size: 0.9rem;
+            margin-bottom: 0.8rem;
+            padding-left: 1.2rem;
+            position: relative;
+        }
+
+        .notice-list li::before {
+            content: "•";
+            color: var(--primary-color);
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--secondary-color);
+            color: #bdc3c7;
+            padding: 3rem 0;
+            margin-top: auto;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 1rem;
+            border-top: 1px solid #34495e;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .search-box {
+                grid-template-columns: 1fr;
+            }
+
+            .main-container {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background: white;
+                box-shadow: var(--shadow-md);
+                padding: 1rem;
+            }
+
+            nav.active {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">厚街<span>租房网</span></a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <nav id="main-nav">
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#latest">最新房源</a></li>
+                    <li><a href="#map">小区找房</a></li>
+                    <li><a href="#guide">租房指南</a></li>
+                    <li><a href="#about">关于我们</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <h1>在厚街，找到属于你的家</h1>
+        <p>专注厚街镇真实房源，房东直租无中介费，海量公寓、单间、厂房宿舍任您选。</p>
+        
+        <div class="search-box">
+            <div class="form-group">
+                <label>区域/小区</label>
+                <input type="text" class="form-control" placeholder="例如：厚街广场、三屯、河田...">
+            </div>
+            <div class="form-group">
+                <label>租金预算</label>
+                <select class="form-control">
+                    <option value="">不限</option>
+                    <option value="1000">1000元以下</option>
+                    <option value="2000">1000-2000元</option>
+                    <option value="3000">2000-3000元</option>
+                    <option value="4000">3000元以上</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label>户型</label>
+                <select class="form-control">
+                    <option value="">不限</option>
+                    <option value="1">一室一厅</option>
+                    <option value="2">两室一厅</option>
+                    <option value="3">三室一厅</option>
+                    <option value="s">单间/合租</option>
+                </select>
+            </div>
+            <button class="btn-primary">立即搜索</button>
+        </div>
+    </section>
+
+    <!-- Quick Nav Tags -->
+    <div class="quick-nav">
+        <span class="nav-tag">🔥 热门小区：厚街广场</span>
+        <span class="nav-tag">🏠 公寓推荐：万科云城</span>
+        <span class="nav-tag">🏭 厂房宿舍：富民工业园</span>
+        <span class="nav-tag">🚇 交通便利：地铁2号线</span>
+        <span class="nav-tag">💰 长租优惠</span>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        
+        <!-- Property Listings -->
+        <section id="latest">
+            <div class="section-header">
+                <h2 class="section-title">最新发布房源</h2>
+                <a href="#" style="font-size: 0.9rem; color: var(--primary-color);">查看全部 &rarr;</a>
+            </div>
+
+            <article class="property-card">
+                <div class="card-img-wrapper">
+                    <img src="https://picsum.photos/seed/houjie1/800/400" alt="厚街两室一厅公寓" class="card-img">
+                    <span class="tag-direct">房东直租</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">万科云城精装两室一厅 采光无敌</h3>
+                        <div class="price">4500<span>/月</span></div>
+                    </div>
+                    <div class="card-meta">
+                        <span class="meta-item">🏠 2室1厅</span>
+                        <span class="meta-item">📐 85平米</span>
+                        <span class="meta-item">🚿 独立卫浴</span>
+                        <span class="meta-item">✅ 满两年</span>
+                    </div>
+                    <p class="card-desc">位于厚街中心区万科云城，近厚街广场，交通便利。房子南北通透，家电齐全，拎包入住。适合情侣或小家庭居住。</p>
+                    <div class="card-footer">
+                        <span class="location">📍 厚街镇中心区 | 更新于 2小时前</span>
+                        <a href="#" class="contact-btn">联系房东</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="property-card">
+                <div class="card-img-wrapper">
+                    <img src="https://picsum.photos/seed/houjie2/800/400" alt="厚街三屯单间" class="card-img">
+                    <span class="tag-direct">中介发布</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">三屯商业街附近高性价比单间</h3>
+                        <div class="price">1200<span>/月</span></div>
+                    </div>
+                    <div class="card-meta">
+                        <span class="meta-item">🏠 单间</span>
+                        <span class="meta-item">📐 15平米</span>
+                        <span class="meta-item">📶 宽带WiFi</span>
+                        <span class="meta-item">🚶 步行5分钟</span>
+                    </div>
+                    <p class="card-desc">三屯商业街旁，生活极其便利，楼下就是超市和餐馆。房间干净整洁，独立卫生间，适合上班族。</p>
+                    <div class="card-footer">
+                        <span class="location">📍 厚街镇三屯 | 更新于 5小时前</span>
+                        <a href="#" class="contact-btn">立即咨询</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="property-card">
+                <div class="card-img-wrapper">
+                    <img src="https://picsum.photos/seed/houjie3/800/400" alt="厚街厂房宿舍" class="card-img">
+                    <span class="tag-direct">房东直租</span>
+                </div>
+                <div class="card-content">
+                    <div class="card-header">
+                        <h3 class="card-title">富民工业园附近正规宿舍招租</h3>
+                        <div class="price">1500<span>/月</span></div>
+                    </div>
+                    <div class="card-meta">
+                        <span class="meta-item">🏠 4人间</span>
+                        <span class="meta-item">📐 25平米/间</span>
+                        <span class="meta-item">🚿 公共浴室</span>
+                        <span class="meta-item">🍳 热水淋浴</span>
+                    </div>
+                    <p class="card-desc">专为在富民、名家具等工业园上班的朋友准备。宿舍环境好，有空调、洗衣机、热水器，安保完善。</p>
+                    <div class="card-footer">
+                        <span class="location">📍 厚街镇富民 | 更新于 1天前</span>
+                        <a href="#" class="contact-btn">联系房东</a>
+                    </div>
+                </div>
+            </article>
+
+        </section>
+
+        <!-- Sidebar -->
+        <aside>
+            <!-- FAQ Widget -->
+            <div class="sidebar-widget" id="guide">
+                <h3 class="widget-title">租房常见问题</h3>
+                <div class="faq-item">
+                    <div class="faq-q">厚街租房中介费一般是多少？</div>
+                    <div class="faq-a">正规中介费通常是一个月房租，建议优先选择本站“房东直租”房源，可节省这笔费用。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">如何判断租房信息是否真实？</div>
+                    <div class="faq-a">请核实房源照片是否与现场一致，尽量选择本站认证房源。警惕要求提前支付定金或押金到私人账户的行为。</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-q">在厚街租房需要注意什么？</div>
+                    <div class="faq-a">注意检查水电煤表读数，确认是否可开通燃气，确认是否可办理居住证，并保留好合同凭证。</div>
+                </div>
+            </div>
+
+            <!-- Notices Widget -->
+            <div class="sidebar-widget">
+                <h3 class="widget-title">最新公告</h3>
+                <ul class="notice-list">
+                    <li>本站承诺所有房源均为真实有效，如有虚假信息请举报。</li>
+                    <li>冬季租房旺季，请提前联系房东确认入住时间。</li>
+                    <li>厚街部分区域即将进行电路改造，请留意停电通知。</li>
+                </ul>
+            </div>
+
+            <!-- Ad Placeholder -->
+            <div class="sidebar-widget" style="background: #eef2f5; text-align: center; color: #7f8c8d; padding: 2rem;">
+                <p style="font-weight: bold; margin-bottom: 0.5rem;">租房热线咨询</p>
+                <p style="font-size: 1.2rem; color: var(--primary-color);">0769-12345678</p>
+            </div>
+        </aside>
+
+    </main>
+
+    <!-- Footer -->
+    <footer id="about">
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>厚街租房网</h4>
+                <p style="font-size: 0.9rem; line-height: 1.6;">致力于为厚街镇居民提供最真实、最便捷的租房信息服务平台，连接房东与租客，让租房更简单。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速导航</h4>
+                <ul>
+                    <li><a href="#">最新房源</a></li>
+                    <li><a href="#">小区地图</a></li>
+                    <li><a href="#">厂房招租</a></li>
+                    <li><a href="#">房屋出租</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>帮助中心</h4>
+                <ul>
+                    <li><a href="#">发布房源</a></li>
+                    <li><a href="#">联系客服</a></li>
+                    <li><a href="#">免责声明</a></li>
+                    <li><a href="#">隐私政策</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 厚街租房网. All Rights Reserved. 本网站不拥有图片版权，图片版权归原作者所有。</p>
+        </div>
+    </footer>
+
+    <script>
+        // Simple Mobile Menu Toggle
+        function toggleMenu() {
+            const nav = document.getElementById('main-nav');
+            nav.classList.toggle('active');
+        }
+
+        // Add smooth scroll behavior for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('main-nav').classList.remove('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
