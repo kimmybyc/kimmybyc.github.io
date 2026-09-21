@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>防灾减灾宣传-全民防灾知识科普与应急避险指南</title>
+    <meta name="description" content="提供全面的防灾减灾宣传知识，涵盖地震、火灾、洪涝等自然灾害的应急避险、自救互救技巧及防灾减灾宣传资料下载。">
+    <meta name="keywords" content="防灾减灾宣传,应急避险,自救互救,自然灾害科普,防灾减灾指南">
+    <style>
+        :root {
+            --primary-color: #e74c3c;
+            --secondary-color: #3498db;
+            --dark-color: #2c3e50;
+            --light-bg: #f8f9fa;
+            --text-color: #333;
+            --border-radius: 8px;
+            --shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: #fff;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo span {
+            color: var(--dark-color);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 30px;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--dark-color);
+        }
+
+        nav a:hover {
+            color: var(--primary-color);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+            color: white;
+            padding: 80px 20px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            line-height: 1.3;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: white;
+            color: var(--primary-color);
+            padding: 12px 30px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark-color);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: #666;
+        }
+
+        /* Info Grid */
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 60px;
+        }
+
+        .info-card {
+            background: var(--light-bg);
+            padding: 30px;
+            border-radius: var(--border-radius);
+            transition: transform 0.3s, box-shadow 0.3s;
+            border-top: 4px solid var(--secondary-color);
+        }
+
+        .info-card:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow);
+        }
+
+        .info-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 15px;
+            color: var(--dark-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-card p {
+            color: #555;
+            font-size: 0.95rem;
+        }
+
+        /* Disaster Types */
+        .disaster-section {
+            background-color: #f1f4f8;
+            padding: 60px 20px;
+        }
+
+        .disaster-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .disaster-item {
+            background: white;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .disaster-icon {
+            height: 150px;
+            background-color: #ddd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+        }
+
+        .disaster-content {
+            padding: 20px;
+            flex-grow: 1;
+        }
+
+        .disaster-content h3 {
+            margin-bottom: 10px;
+            color: var(--dark-color);
+        }
+
+        .disaster-content ul {
+            margin-top: 10px;
+            padding-left: 20px;
+        }
+
+        .disaster-content li {
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            color: #555;
+        }
+
+        /* Guide Section */
+        .guide-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: start;
+        }
+
+        .guide-list {
+            background: white;
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            padding: 20px;
+        }
+
+        .guide-item {
+            padding: 20px 0;
+            border-bottom: 1px solid #eee;
+        }
+
+        .guide-item:last-child {
+            border-bottom: none;
+        }
+
+        .guide-item h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--primary-color);
+        }
+
+        .guide-item p {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        .download-area {
+            background: var(--dark-color);
+            color: white;
+            padding: 40px;
+            border-radius: var(--border-radius);
+            text-align: center;
+        }
+
+        .download-area h3 {
+            margin-bottom: 20px;
+        }
+
+        .download-btn {
+            display: inline-block;
+            background: var(--primary-color);
+            color: white;
+            padding: 10px 25px;
+            border-radius: 4px;
+            margin-top: 15px;
+        }
+
+        /* FAQ */
+        .faq-section {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border: 1px solid #eee;
+            border-radius: var(--border-radius);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 20px;
+            background: #fff;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--primary-color);
+        }
+
+        .faq-answer {
+            padding: 0 20px;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: #fafafa;
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 20px;
+            max-height: 200px;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        /* Footer */
+        footer {
+            background: #1a252f;
+            color: #bdc3c7;
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-links {
+            margin-bottom: 20px;
+        }
+
+        .footer-links a {
+            margin: 0 15px;
+            font-size: 0.9rem;
+        }
+
+        .footer-links a:hover {
+            color: white;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav ul {
+                gap: 15px;
+                font-size: 0.9rem;
+            }
+
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .guide-container {
+                grid-template-columns: 1fr;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            nav ul {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: center;
+                gap: 15px;
+            }
+
+            nav ul.show {
+                display: flex;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                🛡️ 防灾<span>减灾</span>
+            </div>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <nav>
+                <ul id="nav-menu">
+                    <li><a href="#home">首页</a></li>
+                    <li><a href="#types">灾害类型</a></li>
+                    <li><a href="#guide">应急指南</a></li>
+                    <li><a href="#faq">常见问题</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>未雨绸缪，生命至上</h1>
+            <p>掌握防灾减灾知识，提高自救互救能力。在灾害面前，科学的准备是保护自己和家人的第一道防线。</p>
+            <a href="#guide" class="cta-button">查看应急指南</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Core Concepts -->
+        <section>
+            <div class="section-title">
+                <h2>为什么防灾减灾至关重要？</h2>
+                <p>自然灾害具有突发性、破坏性强、难以预测的特点，但通过科学的宣传教育和应急准备，可以最大程度减少损失。</p>
+            </div>
+            <div class="info-grid">
+                <article class="info-card">
+                    <h3>📉 减少伤亡</h3>
+                    <p>掌握正确的避险姿势和逃生路线，能显著提高在地震、火灾等紧急情况下的生存几率。</p>
+                </article>
+                <article class="info-card">
+                    <h3>🛡️ 降低财产损失</h3>
+                    <p>提前进行家庭隐患排查（如电路老化、消防通道堵塞）和物资储备，能有效降低灾害造成的财产损失。</p>
+                </article>
+                <article class="info-card">
+                    <h3>🤝 提升社会韧性</h3>
+                    <p>普及防灾知识有助于构建安全的社会环境，增强社区和个人的抗风险能力。</p>
+                </article>
+            </div>
+        </section>
+
+        <!-- Disaster Types -->
+        <section class="disaster-section" id="types">
+            <div class="section-title">
+                <h2>常见自然灾害类型</h2>
+                <p>了解不同灾害的特征，是制定针对性防灾策略的前提。</p>
+            </div>
+            <div class="disaster-grid">
+                <div class="disaster-item">
+                    <div class="disaster-icon" style="background-color: #e74c3c;">🔥</div>
+                    <div class="disaster-content">
+                        <h3>地震灾害</h3>
+                        <p>地面剧烈震动，易引发建筑倒塌、火灾、海啸等次生灾害。</p>
+                        <ul>
+                            <li>室内避险：伏地、掩护、抓牢。</li>
+                            <li>室外避险：远离建筑物、大树、电线。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="disaster-item">
+                    <div class="disaster-icon" style="background-color: #3498db;">🌊</div>
+                    <div class="disaster-content">
+                        <h3>洪涝灾害</h3>
+                        <p>河流泛滥、山洪暴发，导致城市内涝、农田淹没。</p>
+                        <ul>
+                            <li>高处避险：向地势高处转移。</li>
+                            <li>防触电：远离电力设施。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="disaster-item">
+                    <div class="disaster-icon" style="background-color: #f39c12;">🌪️</div>
+                    <div class="disaster-content">
+                        <h3>气象灾害</h3>
+                        <p>包括台风、暴雨、泥石流等，具有极强的破坏力和不可预测性。</p>
+                        <ul>
+                            <li>台风：加固门窗，储备物资。</li>
+                            <li>泥石流：向两侧山坡跑，切勿顺沟向下跑。</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="disaster-item">
+                    <div class="disaster-icon" style="background-color: #9b59b6;">⚡</div>
+                    <div class="disaster-content">
+                        <h3>火灾事故</h3>
+                        <p>包括家庭火灾、森林火灾等，蔓延速度快，烟雾毒性大。</p>
+                        <ul>
+                            <li>逃生：湿毛巾捂口鼻，低姿匍匐。</li>
+                            <li>报警：拨打119，讲清地点火势。</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Emergency Guide -->
+        <section id="guide">
+            <div class="section-title">
+                <h2>家庭应急准备指南</h2>
+                <p>防患于未然，建立一个简单的家庭应急包和逃生路线。</p>
+            </div>
+            <div class="guide-container">
+                <div class="guide-list">
+                    <div class="guide-item">
+                        <h3>1. 制定逃生路线图</h3>
+                        <p>在家中每个房间绘制清晰的逃生路线，标明安全出口和集合点。定期进行演练，确保家人熟悉。</p>
+                    </div>
+                    <div class="guide-item">
+                        <h3>2. 储备应急物资</h3>
+                        <p>包括饮用水（每人每天至少3升）、非易腐食物（罐头、能量棒）、急救包、手电筒、备用电池、收音机等。</p>
+                    </div>
+                    <div class="guide-item">
+                        <h3>3. 重要文件备份</h3>
+                        <p>将身份证、房产证、保险单等重要文件的复印件或电子版存放在防水袋中，并放在家中隐蔽且易取的地方。</p>
+                    </div>
+                    <div class="guide-item">
+                        <h3>4. 检查房屋隐患</h3>
+                        <p>定期检查燃气管道、电路老化情况，清理楼道杂物，确保消防通道畅通。</p>
+                    </div>
+                </div>
+                <div class="download-area">
+                    <h3>下载防灾减灾宣传手册</h3>
+                    <p>获取更详细的图文资料和操作视频，请点击下方链接下载标准版宣传资料包。</p>
+                    <a href="#" class="download-btn" onclick="alert('演示功能：此处可链接到PDF下载地址')">下载资料包 (PDF)</a>
+                    <p style="margin-top: 15px; font-size: 0.8rem; opacity: 0.7;">支持格式：PDF, DOCX, JPG</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="faq-section" id="faq">
+            <div class="section-title">
+                <h2>常见问题 (FAQ)</h2>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">家庭应急包需要准备多久够用？</div>
+                <div class="faq-answer">
+                    <p>建议准备至少能维持家庭72小时（3天）生存的物资。这包括饮用水、高热量食物、急救药品、手电筒和保暖衣物。物资应定期检查并更换过期食品和电池。</p>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">发生地震时在商场应该怎么躲？</div>
+                <div>
+                    <div class="faq-answer">
+                        <p>在商场等公共场所，应立即停止购物，迅速躲在结实的柜台、立柱或墙角等“生命三角区”附近。不要靠近玻璃橱窗、广告牌和悬挂物。震后听从工作人员指挥，有序撤离，切勿乘坐电梯。</p>
+                    </div>
+                </div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">如何判断泥石流和滑坡的来临？</div>
+                <div class="faq-answer">
+                    <p>泥石流来临前通常伴有巨大的轰鸣声和震动，沟谷深处变浑浊，水位突然上涨或下降。如果听到类似火车轰鸣的声音，说明泥石流正在发生，必须立即向两侧山坡高处跑，切勿顺沟方向跑。</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="#">关于我们</a>
+                <a href="#">隐私政策</a>
+                <a href="#">免责声明</a>
+                <a href="#">联系方式</a>
+            </div>
+            <p>&copy; 2023 防灾减灾宣传中心 版权所有</p>
+            <p style="font-size: 0.8rem; margin-top: 10px; color: #7f8c8d;">本网站内容仅供科普参考，不构成专业应急建议。</p>
+        </div>
+    </footer>
+
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+
+    <script>
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            const navMenu = document.getElementById('nav-menu');
+            navMenu.classList.toggle('show');
+        }
+
+        // FAQ Accordion
+        function toggleFaq(element) {
+            const parent = element.parentElement;
+            // Close other items (optional, keeps it clean)
+            const allItems = document.querySelectorAll('.faq-item');
+            allItems.forEach(item => {
+                if (item !== parent) {
+                    item.classList.remove('active');
+                }
+            });
+            // Toggle current
+            parent.classList.toggle('active');
+        }
+
+        // Smooth Scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                    // Close mobile menu if open
+                    document.getElementById('nav-menu').classList.remove('show');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
