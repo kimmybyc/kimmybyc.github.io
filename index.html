@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生化模式-战术生存挑战与规则详解指南</title>
+    <meta name="description" content="生化模式-战术生存挑战与规则详解指南：提供最新的生化模式攻略、地图点位分析、武器推荐及实战技巧，帮助玩家在生化战场上获得胜利。">
+    <meta name="keywords" content="生化模式, 玩法攻略, 生存技巧, 竞技游戏, 网页游戏">
+    <style>
+        :root {
+            --primary-red: #d32f2f;
+            --dark-bg: #121212;
+            --card-bg: #1e1e1e;
+            --text-main: #e0e0e0;
+            --text-sub: #a0a0a0;
+            --accent-green: #4caf50;
+            --border-color: #333;
+            --spacing-unit: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--dark-bg);
+            color: var(--text-main);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.3s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: rgba(18, 18, 18, 0.95);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 60px;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--primary-red);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .logo span {
+            color: var(--text-main);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 24px;
+        }
+
+        nav a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            color: var(--text-sub);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-red);
+        }
+
+        .cta-btn {
+            background-color: var(--primary-red);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .cta-btn:hover {
+            background-color: #b71c1c;
+            color: white;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('https://picsum.photos/seed/zombie/1920/600.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 0 var(--spacing-unit);
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 16px;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .hero h1 span {
+            color: var(--primary-red);
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            color: var(--text-sub);
+            margin-bottom: 32px;
+        }
+
+        .hero-tags {
+            display: flex;
+            justify-content: center;
+            gap: 12px;
+            margin-bottom: 32px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background-color: rgba(211, 47, 47, 0.2);
+            color: var(--primary-red);
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            border: 1px solid rgba(211, 47, 47, 0.5);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 40px auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 32px;
+        }
+
+        /* Section Titles */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+            border-left: 4px solid var(--primary-red);
+            padding-left: 12px;
+        }
+
+        .section-header h2 {
+            font-size: 1.5rem;
+        }
+
+        .section-header a {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+        }
+
+        .section-header a:hover {
+            color: var(--primary-red);
+        }
+
+        /* Game Modes Grid */
+        .modes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 20px;
+        }
+
+        .mode-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            overflow: hidden;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .mode-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+            border-color: var(--primary-red);
+        }
+
+        .mode-img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+        }
+
+        .mode-content {
+            padding: 16px;
+        }
+
+        .mode-content h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+
+        .mode-content p {
+            font-size: 0.9rem;
+            color: var(--text-sub);
+            margin-bottom: 16px;
+        }
+
+        .mode-stats {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.85rem;
+            color: var(--accent-green);
+            border-top: 1px solid var(--border-color);
+            padding-top: 12px;
+        }
+
+        /* Sidebar */
+        aside {
+            display: flex;
+            flex-direction: column;
+            gap: 32px;
+        }
+
+        .sidebar-widget {
+            background-color: var(--card-bg);
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .sidebar-widget h3 {
+            font-size: 1.2rem;
+            margin-bottom: 16px;
+            border-bottom: 1px solid var(--border-color);
+            padding-bottom: 8px;
+        }
+
+        .guide-list li {
+            margin-bottom: 12px;
+        }
+
+        .guide-list a {
+            display: flex;
+            justify-content: space-between;
+            color: var(--text-sub);
+            font-size: 0.95rem;
+        }
+
+        .guide-list a:hover {
+            color: var(--primary-red);
+        }
+
+        .guide-list span {
+            font-size: 0.8rem;
+            background: #333;
+            padding: 2px 6px;
+            border-radius: 4px;
+        }
+
+        /* Guide Content */
+        .guide-article {
+            background-color: var(--card-bg);
+            padding: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+            margin-bottom: 32px;
+        }
+
+        .guide-article h2 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--text-main);
+        }
+
+        .guide-article p {
+            margin-bottom: 16px;
+            text-align: justify;
+        }
+
+        .guide-article h3 {
+            font-size: 1.3rem;
+            margin-top: 24px;
+            margin-bottom: 12px;
+            color: var(--primary-red);
+        }
+
+        .guide-article ul {
+            margin-left: 20px;
+            margin-bottom: 16px;
+        }
+
+        .guide-article li {
+            margin-bottom: 8px;
+            color: var(--text-sub);
+        }
+
+        .step-box {
+            background-color: rgba(211, 47, 47, 0.1);
+            border-left: 4px solid var(--primary-red);
+            padding: 16px;
+            margin: 16px 0;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .step-box strong {
+            display: block;
+            margin-bottom: 4px;
+            color: var(--text-main);
+        }
+
+        /* FAQ */
+        .faq-section {
+            background-color: var(--card-bg);
+            padding: 32px;
+            border-radius: 8px;
+            border: 1px solid var(--border-color);
+        }
+
+        .faq-item {
+            border-bottom: 1px solid var(--border-color);
+            padding: 16px 0;
+        }
+
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 8px;
+            color: var(--text-main);
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .faq-answer {
+            color: var(--text-sub);
+            font-size: 0.95rem;
+            display: none;
+        }
+
+        .faq-item.active .faq-answer {
+            display: block;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #0a0a0a;
+            padding: 40px 0 20px;
+            margin-top: 60px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 var(--spacing-unit);
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-col h4 {
+            color: var(--text-main);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .footer-col ul li {
+            margin-bottom: 10px;
+        }
+
+        .footer-col ul li a {
+            color: var(--text-sub);
+            font-size: 0.9rem;
+        }
+
+        .footer-col ul li a:hover {
+            color: var(--primary-red);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #222;
+            color: #555;
+            font-size: 0.85rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                height: auto;
+                padding: 12px 0;
+            }
+
+            nav ul {
+                margin: 12px 0;
+                gap: 16px;
+                font-size: 0.85rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <div class="logo">
+            <span>★</span> 生化模式
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#" class="active">首页</a></li>
+                <li><a href="#">玩法攻略</a></li>
+                <li><a href="#">地图解析</a></li>
+                <li><a href="#">武器推荐</a></li>
+            </ul>
+        </nav>
+        <a href="#" class="cta-btn">立即参与</a>
+    </div>
+</header>
+
+<main>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>挑战极限 <span>生化模式</span> 战术生存指南</h1>
+            <div class="hero-tags">
+                <span class="tag">经典对抗</span>
+                <span class="tag">团队协作</span>
+                <span class="tag">策略生存</span>
+            </div>
+            <p>掌握核心点位与武器搭配，从求生者进化为终极生化幽灵，体验紧张刺激的战场博弈。</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Main Content Area -->
+        <div class="content-area">
+            
+            <section class="guide-article">
+                <h2>什么是生化模式？</h2>
+                <p>生化模式是射击游戏中极具人气的团队竞技模式。玩家被分为“求生者”和“生化幽灵”两大阵营。游戏开始时，部分玩家被感染为幽灵，其余玩家则需在地图中搜集能量并存活至时间结束。该模式强调团队配合、地图熟悉度以及武器选择策略，是检验玩家走位与反应能力的最佳舞台。</p>
+                
+                <h3>核心玩法机制</h3>
+                <p>在生化模式中，求生者的主要任务是生存并阻止幽灵感染全场。随着感染人数增加，幽灵的能力会逐渐增强，包括更高的跳跃力、更快的移动速度以及范围性的感染技能。</p>
+                <ul>
+                    <li><strong>能量收集：</strong> 求生者需通过击杀小怪或拾取能量球来提升自身能量，能量满后可变身为强大的“终结者”形态，对幽灵造成巨大威胁。</li>
+                    <li><strong>感染机制：</strong> 幽灵通过触碰或使用技能感染求生者。被感染的玩家将失去武器，无法攻击，只能等待队友救援或重新开始。</li>
+                    <li><strong>时间限制：</strong> 游戏通常设有倒计时，求生者需在规定时间内存活或消灭所有幽灵。</li>
+                </ul>
+
+                <div class="step-box">
+                    <strong>生存第一法则</strong>
+                    不要贪枪，不要独自深入。在生化模式中，单兵作战极易被围攻。保持团队阵型，利用掩体规避幽灵的冲撞技能，是存活的关键。
+                </div>
+            </section>
+
+            <section class="section-header">
+                <h2>热门模式分类</h2>
+                <a href="#">查看更多 &rarr;</a>
+            </section>
+            
+            <div class="modes-grid">
+                <article class="mode-card">
+                    <img src="https://picsum.photos/seed/bio1/400/250" alt="经典生化模式" class="mode-img">
+                    <div class="mode-content">
+                        <h3>经典生化</h3>
+                        <p>最传统的生化玩法，强调人数比例和感染速度，考验求生者的整体生存能力。</p>
+                        <div class="mode-stats">
+                            <span>推荐指数：★★★★★</span>
+                            <span>人数：24人</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="mode-card">
+                    <img src="https://picsum.photos/seed/bio2/400/250" alt="救世主模式" class="mode-img">
+                    <div class="mode-content">
+                        <h3>救世主模式</h3>
+                        <p>引入了“救世主”角色，拥有极高的爆发力和特殊技能，改变了传统的攻防节奏。</p>
+                        <div class="mode-stats">
+                            <span>推荐指数：★★★★☆</span>
+                            <span>人数：16人</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="mode-card">
+                    <img src="https://picsum.photos/seed/bio3/400/250" alt="终结者模式" class="mode-img">
+                    <div class="mode-content">
+                        <h3>终结者模式</h3>
+                        <p>求生者可变身终结者，拥有强大的火力压制能力，适合喜欢火力全开的玩家。</p>
+                        <div class="mode-stats">
+                            <span>推荐指数：★★★★☆</span>
+                            <span>人数：16人</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="mode-card">
+                    <img src="https://picsum.photos/seed/bio4/400/250" alt="追击模式" class="mode-img">
+                    <div class="mode-content">
+                        <h3>追击模式</h3>
+                        <p>幽灵拥有瞬移技能，地图相对封闭，节奏极快，是对玩家身法和反应的极限挑战。</p>
+                        <div class="mode-stats">
+                            <span>推荐指数：★★★☆☆</span>
+                            <span>人数：12人</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <section class="faq-section">
+                <div class="section-header">
+                    <h2>常见问题 (FAQ)</h2>
+                </div>
+                
+                <div class="faq-item">
+                    <div class="faq-question">求生者如何获得能量？ <span>+</span></div>
+                    <div class="faq-answer">求生者可以通过击杀地图中随机刷新的小怪物（如生化人）来获得能量。能量积累到一定程度后，会自动提示玩家点击按键进行变身。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">生化幽灵有什么克制武器？ <span>+</span></div>
+                    <div class="faq-answer">虽然求生者武器对幽灵伤害更高，但生化幽灵在近距离碰撞时拥有优势。建议幽灵利用地图高低差和跳台进行突袭，避免在开阔地带与拥有高射速武器的求生者硬拼。</div>
+                </div>
+
+                <div class="faq-item">
+                    <div class="faq-question">被感染后如何恢复？ <span>+</span></div>
+                    <div class="faq-answer">被感染后，玩家暂时无法操作，直到游戏结束。部分特殊模式或道具可能提供救援机会，但通常情况下，被感染即视为本轮失败，需等待下一局开始。</div>
+                </div>
+            </section>
+
+        </div>
+
+        <!-- Sidebar Area -->
+        <aside>
+            <div class="sidebar-widget">
+                <h3>新手入门指南</h3>
+                <ul class="guide-list">
+                    <li><a href="#">生化模式基础规则与获胜条件</a> <span>新手</span></li>
+                    <li><a href="#">求生者变身的最佳时机</a> <span>技巧</span></li>
+                    <li><a href="#">幽灵阵营的感染技巧与连招</a> <span>进阶</span></li>
+                    <li><a href="#">生化模式地图点位详解</a> <span>地图</span></li>
+                    <li><a href="#">武器属性对比与选择建议</a> <span>武器</span></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>热门武器推荐</h3>
+                <ul class="guide-list">
+                    <li><a href="#">M249：火力覆盖首选</a> <span>持续火力</span></li>
+                    <li><a href="#">加特林：终结者必备</a> <span>高射速</span></li>
+                    <li><a href="#">沙漠之鹰：幽灵克星</a> <span>精准点射</span></li>
+                    <li><a href="#">雷神：生化模式神器</a> <span>穿透力</span></li>
+                </ul>
+            </div>
+
+            <div class="sidebar-widget">
+                <h3>本周热点</h3>
+                <ul class="guide-list">
+                    <li><a href="#">2023年生化模式平衡性调整一览</a> <span>资讯</span></li>
+                    <li><a href="#">职业联赛生化模式精彩集锦</a> <span>视频</span></li>
+                    <li><a href="#">新地图“废弃工厂”战术分析</a> <span>攻略</span></li>
+                </ul>
+            </div>
+        </aside>
+    </div>
+</main>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-col">
+            <h4>关于我们</h4>
+            <p style="color: #666; font-size: 0.9rem; line-height: 1.6;">
+                本站专注于提供生化模式的最新资讯、深度攻略与战术分析。致力于为玩家打造最专业的游戏交流平台。
+            </p>
+        </div>
+        <div class="footer-col">
+            <h4>快速导航</h4>
+            <ul>
+                <li><a href="#">游戏首页</a></li>
+                <li><a href="#">新手教程</a></li>
+                <li><a href="#">武器库</a></li>
+                <li><a href="#">社区论坛</a></li>
+            </ul>
+        </div>
+        <div class="footer-col">
+            <h4>帮助中心</h4>
+            <ul>
+                <li><a href="#">常见问题</a></li>
+                <li><a href="#">联系客服</a></li>
+                <li><a href="#">用户协议</a></li>
+                <li><a href="#">隐私政策</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="copyright">
+        &copy; 2023 生化模式攻略网. All rights reserved. 本站内容仅供玩家参考，非官方网站。
+    </div>
+</footer>
+
+<script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+
+<script>
+    // Simple FAQ Interaction
+    document.addEventListener('DOMContentLoaded', function() {
+        const faqItems = document.querySelectorAll('.faq-item');
+        
+        faqItems.forEach(item => {
+            const question = item.querySelector('.faq-question');
+            question.addEventListener('click', () => {
+                // Toggle active class
+                item.classList.toggle('active');
+                
+                // Rotate icon (optional visual feedback)
+                const span = question.querySelector('span');
+                if (item.classList.contains('active')) {
+                    span.textContent = '-';
+                } else {
+                    span.textContent = '+';
+                }
+            });
+        });
+    });
+</script>
+
+</body>
+                                                                   </html>
