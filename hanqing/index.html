@@ -1,0 +1,716 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="旱情监测与应对指南：实时干旱预警、农业灌溉节水技术、水资源管理与生态修复方案，为抗旱减灾提供全面资讯与实用建议。">
+    <meta name="keywords" content="旱情,干旱预警,农业抗旱,节水灌溉,水资源管理">
+    <title>旱情-实时监测预警与农业抗旱应对指南</title>
+    <script type="text/javascript" src="https://cdn.bdwgg.com/mh.js"></script>
+    <style>
+        :root {
+            --primary-color: #d35400;
+            --secondary-color: #e67e22;
+            --accent-color: #f39c12;
+            --text-dark: #2c3e50;
+            --text-light: #7f8c8d;
+            --bg-light: #fdfbf7;
+            --white: #ffffff;
+            --border-color: #e0e0e0;
+            --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
+            --shadow-md: 0 4px 8px rgba(0,0,0,0.08);
+            --radius: 8px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+            line-height: 1.6;
+            color: var(--text-dark);
+            background-color: var(--bg-light);
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color 0.2s;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            border-bottom: 1px solid var(--border-color);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: var(--shadow-sm);
+        }
+
+        .header-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .logo span {
+            color: var(--text-dark);
+        }
+
+        nav ul {
+            display: flex;
+            gap: 2rem;
+        }
+
+        nav a {
+            font-weight: 500;
+            color: var(--text-dark);
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--primary-color);
+        }
+
+        .search-box {
+            display: flex;
+            align-items: center;
+        }
+
+        .search-box input {
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--border-color);
+            border-radius: 20px;
+            outline: none;
+            font-size: 0.9rem;
+        }
+
+        .search-box button {
+            background: none;
+            border: none;
+            cursor: pointer;
+            color: var(--text-light);
+            margin-left: 0.5rem;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+            color: var(--white);
+            padding: 4rem 1.5rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .hero h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.1rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .status-badge {
+            display: inline-block;
+            background: rgba(255,255,255,0.2);
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            backdrop-filter: blur(5px);
+        }
+
+        .cta-button {
+            background-color: var(--white);
+            color: var(--primary-color);
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            font-weight: 600;
+            display: inline-block;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+        }
+
+        /* Main Layout */
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1.5rem;
+            display: grid;
+            grid-template-columns: 2.5fr 1fr;
+            gap: 2rem;
+        }
+
+        /* News Grid */
+        .section-title {
+            font-size: 1.5rem;
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .card {
+            background: var(--white);
+            border-radius: var(--radius);
+            overflow: hidden;
+            box-shadow: var(--shadow-sm);
+            transition: box-shadow 0.3s;
+            border: 1px solid var(--border-color);
+        }
+
+        .card:hover {
+            box-shadow: var(--shadow-md);
+        }
+
+        .card-image {
+            width: 100%;
+            height: 180px;
+            background-color: #eee;
+            object-fit: cover;
+        }
+
+        .card-body {
+            padding: 1.25rem;
+        }
+
+        .card-tag {
+            font-size: 0.8rem;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        .card-title {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+            line-height: 1.4;
+        }
+
+        .card-excerpt {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            margin-bottom: 1rem;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            border-top: 1px solid #f0f0f0;
+            padding-top: 0.75rem;
+        }
+
+        /* Sidebar */
+        aside .widget {
+            background: var(--white);
+            border-radius: var(--radius);
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .widget-title {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--border-color);
+            color: var(--text-dark);
+        }
+
+        .warning-list li {
+            padding: 0.75rem 0;
+            border-bottom: 1px dashed var(--border-color);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .warning-list li:last-child {
+            border-bottom: none;
+        }
+
+        .level-high {
+            color: #c0392b;
+            font-weight: 600;
+        }
+
+        .level-medium {
+            color: #d35400;
+        }
+
+        .level-low {
+            color: #27ae60;
+        }
+
+        .guide-list li {
+            margin-bottom: 0.5rem;
+        }
+
+        .guide-list a {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .guide-list a:hover {
+            color: var(--primary-color);
+        }
+
+        /* Feature Section */
+        .feature-section {
+            background-color: var(--white);
+            padding: 3rem 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .feature-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 2rem;
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius);
+            background: #fafafa;
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            display: inline-block;
+        }
+
+        .feature-item h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        /* FAQ Section */
+        .faq-section {
+            max-width: 800px;
+            margin: 3rem auto;
+            padding: 0 1.5rem;
+        }
+
+        .faq-item {
+            background: var(--white);
+            border-radius: var(--radius);
+            margin-bottom: 1rem;
+            border: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .faq-question {
+            padding: 1rem 1.5rem;
+            cursor: pointer;
+            font-weight: 600;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: #fff;
+        }
+
+        .faq-question::after {
+            content: '+';
+            font-size: 1.2rem;
+        }
+
+        .faq-item.active .faq-question::after {
+            content: '-';
+        }
+
+        .faq-answer {
+            padding: 0 1.5rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease, padding 0.3s ease;
+            background: #fafafa;
+            color: var(--text-light);
+        }
+
+        .faq-item.active .faq-answer {
+            padding: 1rem 1.5rem;
+            max-height: 200px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        /* Footer */
+        footer {
+            background-color: #2c3e50;
+            color: #ecf0f1;
+            padding: 3rem 1.5rem;
+            margin-top: 4rem;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-col h4 {
+            margin-bottom: 1.2rem;
+            color: var(--white);
+        }
+
+        .footer-col ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-col a {
+            color: #bdc3c7;
+        }
+
+        .footer-col a:hover {
+            color: var(--white);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #34495e;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .header-inner {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                gap: 1rem;
+                font-size: 0.9rem;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="#" class="logo">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"></path></svg>
+                <span>抗旱先锋</span>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">首页</a></li>
+                    <li><a href="#">实时监测</a></li>
+                    <li><a href="#">农业技术</a></li>
+                    <li><a href="#">政策资讯</a></li>
+                    <li><a href="#">专家库</a></li>
+                </ul>
+            </nav>
+            <div class="search-box">
+                <input type="text" placeholder="搜索干旱预警、节水技术...">
+                <button>&#128269;</button>
+            </div>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <span class="status-badge">当前区域：华北平原 | 严重干旱预警</span>
+            <h1>科学应对旱情，守护生命之源</h1>
+            <p>提供专业的旱情监测数据、农业节水灌溉方案及水资源管理建议，帮助农户与社区有效应对干旱挑战。</p>
+            <a href="#guide" class="cta-button">查看抗旱指南</a>
+        </div>
+    </section>
+
+    <main class="container">
+        <!-- Main Content Area -->
+        <section class="main-content">
+            <div class="section-title">
+                <h2>最新旱情动态</h2>
+                <a href="#" style="font-size: 0.9rem; color: var(--primary-color);">查看全部 &rarr;</a>
+            </div>
+
+            <div class="news-grid">
+                <article class="card">
+                    <img src="https://picsum.photos/seed/drought1/400/250" alt="农田干旱景象" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">预警通报</span>
+                        <h3 class="card-title">气象部门发布橙色干旱预警：未来一周高温少雨持续</h3>
+                        <p class="card-excerpt">受副热带高压持续控制，预计未来7日我国北方大部无有效降水，土壤墒情将进一步下降，需提前做好蓄水保墒工作。</p>
+                        <div class="card-footer">
+                            <span>2小时前</span>
+                            <span>阅读 1.2k</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/drought2/400/250" alt="节水灌溉设备" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">技术应用</span>
+                        <h3 class="card-title">滴灌与喷灌技术对比：哪种更适合当前旱情？</h3>
+                        <p class="card-excerpt">针对当前土壤湿度低的现状，专家建议优先采用膜下滴灌技术，结合水肥一体化，可节水30%以上，提高作物成活率。</p>
+                        <div class="card-footer">
+                            <span>5小时前</span>
+                            <span>阅读 856</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/drought3/400/250" alt="水库水位" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">水资源管理</span>
+                        <h3 class="card-title">水库调度优化方案：保障居民饮水与农业灌溉双重需求</h3>
+                        <p class="card-excerpt">如何在水资源紧缺情况下平衡生活用水与生产用水？水利部门发布最新调度方案，实行分时段、分区域供水。</p>
+                        <div class="card-footer">
+                            <span>1天前</span>
+                            <span>阅读 2.3k</span>
+                        </div>
+                    </div>
+                </article>
+            </div>
+
+            <div class="section-title" style="margin-top: 3rem;">
+                <h2>抗旱技术专题</h2>
+            </div>
+            
+            <div class="news-grid">
+                <article class="card">
+                    <img src="https://picsum.photos/seed/drought4/400/250" alt="土壤改良" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">土壤改良</span>
+                        <h3 class="card-title">保水剂在农业中的应用：如何减少土壤水分蒸发？</h3>
+                        <p class="card-excerpt">介绍高分子保水剂的作用机理及在玉米、棉花等作物上的施用方法，帮助农民应对突发性旱情。</p>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <img src="https://picsum.photos/seed/drought5/400/250" alt="耐旱作物" class="card-image">
+                    <div class="card-body">
+                        <span class="card-tag">品种选育</span>
+                        <h3 class="card-title">耐旱作物新品种推广：调整种植结构，降低旱灾风险</h3>
+                        <p class="card-excerpt">推荐适合北方干旱地区种植的耐旱作物品种，分析其产量表现与市场前景。</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div class="widget">
+                <h3 class="widget-title">区域干旱等级</h3>
+                <ul class="warning-list">
+                    <li>
+                        <span>华北平原</span>
+                        <span class="level-high">严重干旱</span>
+                    </li>
+                    <li>
+                        <span>西北内陆</span>
+                        <span class="level-high">严重干旱</span>
+                    </li>
+                    <li>
+                        <span>东北西部</span>
+                        <span class="level-medium">中度干旱</span>
+                    </li>
+                    <li>
+                        <span>江南地区</span>
+                        <span class="level-low">轻度干旱</span>
+                    </li>
+                    <li>
+                        <span>西南地区</span>
+                        <span class="level-low">轻度干旱</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="widget" id="guide">
+                <h3 class="widget-title">抗旱行动指南</h3>
+                <ul class="guide-list">
+                    <li><a href="#">查看各地抗旱物资储备点</a></li>
+                    <li><a href="#">农业抗旱技术视频教程</a></li>
+                    <li><a href="#">节水灌溉设施补贴申请</a></li>
+                    <li><a href="#">人工增雨作业公告</a></li>
+                    <li><a href="#">干旱灾害保险理赔流程</a></li>
+                </ul>
+            </div>
+
+            <div class="widget">
+                <h3 class="widget-title">关注我们</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light); margin-bottom: 1rem;">获取每日旱情更新与专家建议。</p>
+                <input type="email" placeholder="您的邮箱地址" style="width: 100%; padding: 0.5rem; margin-bottom: 0.5rem; border: 1px solid var(--border-color); border-radius: 4px;">
+                <button style="width: 100%; padding: 0.5rem; background-color: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer;">订阅提醒</button>
+            </div>
+        </aside>
+    </main>
+
+    <section class="feature-section">
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="feature-icon">💧</div>
+                <h3>科学节水</h3>
+                <p style="color: var(--text-light); font-size: 0.9rem;">推广高效节水灌溉技术，实现水资源利用最大化。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🛡️</div>
+                <h3>风险预警</h3>
+                <p style="color: var(--text-light); font-size: 0.9rem;">利用卫星遥感与气象大数据，提前预测旱情趋势。</p>
+            </div>
+            <div class="feature-item">
+                <div class="feature-icon">🌱</div>
+                <h3>生态修复</h3>
+                <p style="color: var(--text-light); font-size: 0.9rem;">实施生态补水与植被恢复，增强区域抗旱能力。</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="faq-section">
+        <div class="section-title">
+            <h2>常见问题解答</h2>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">什么是土壤相对湿度，多少算是干旱？</div>
+            <div class="faq-answer">
+                土壤相对湿度是指土壤实际含水量占田间持水量的百分比。一般而言，小于60%为轻度干旱，40%-60%为中度干旱，小于40%为严重干旱。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">农作物在干旱时应如何管理？</div>
+            <div class="faq-answer">
+                优先进行中耕松土，切断土壤毛细管，减少水分蒸发。对于已出现萎蔫的作物，应少量多次浇水，切忌一次浇透，以免造成根系缺氧。
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <div class="faq-question">如何申请抗旱救灾资金或物资？</div>
+            <div class="faq-answer">
+                请联系当地农业农村局或水利局，提供受灾面积证明及损失清单，按照官方发布的申报流程提交申请材料。
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-col">
+                <h4>抗旱先锋</h4>
+                <p style="font-size: 0.9rem; color: #bdc3c7;">致力于为公众提供最权威、及时的旱情信息与科学应对方案。</p>
+            </div>
+            <div class="footer-col">
+                <h4>快速链接</h4>
+                <ul>
+                    <li><a href="#">旱情监测地图</a></li>
+                    <li><a href="#">政策法规库</a></li>
+                    <li><a href="#">专家在线咨询</a></li>
+                    <li><a href="#">数据报告下载</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4>联系我们</h4>
+                <ul>
+                    <li>电话：010-12345678</li>
+                    <li>邮箱：service@kanghan.cn</li>
+                    <li>地址：抗旱技术服务中心</li>
+                </ul>
+            </div>
+        </div>
+        <div class="copyright">
+            &copy; 2023 抗旱先锋服务平台 版权所有
+        </div>
+    </footer>
+
+    <script>
+        // 简单的 FAQ 折叠交互
+        document.addEventListener('DOMContentLoaded', function() {
+            const faqItems = document.querySelectorAll('.faq-item');
+            
+            faqItems.forEach(item => {
+                item.querySelector('.faq-question').addEventListener('click', () => {
+                    // 关闭其他打开的项
+                    faqItems.forEach(otherItem => {
+                        if (otherItem !== item) {
+                            otherItem.classList.remove('active');
+                        }
+                    });
+                    // 切换当前项
+                    item.classList.toggle('active');
+                });
+            });
+
+            // 模拟搜索框交互
+            const searchInput = document.querySelector('.search-box input');
+            const searchBtn = document.querySelector('.search-box button');
+            
+            function performSearch() {
+                const query = searchInput.value.trim();
+                if(query) {
+                    alert('正在搜索关于“' + query + '”的相关抗旱资讯...');
+                }
+            }
+            
+            searchBtn.addEventListener('click', performSearch);
+            searchInput.addEventListener('keypress', (e) => {
+                if (e.key === 'Enter') performSearch();
+            });
+        });
+    </script>
+</body>
+              </html>
